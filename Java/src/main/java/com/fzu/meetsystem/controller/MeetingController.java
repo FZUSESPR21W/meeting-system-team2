@@ -26,17 +26,18 @@ public class MeetingController {
     MeetingService meetingService;
     @PostMapping("/meeting_list")
     @ResponseBody
-    public Map<String,Object> getMeetingList(@RequestBody(required = false) Map<String,Object>data,HttpServletRequest http, Principal principal){
+    public Map<String,Object> getMeetingList(@RequestBody Map<String,Object>data,HttpServletRequest http, Principal principal){
         HashMap<String, Object> resp = new HashMap<>();
-        String username=String.valueOf(data.get("username"));
+        String username=(String)data.get("username");
         resp.put("meetingList",meetingService.getMeetList(username));
         return resp;
     }
     @ApiResponse(description = "秘书获取对应会议的人员信息，meetId为null，则返回全部")
     @RequestMapping(value = "/uesr_list",method = {RequestMethod.GET,RequestMethod.POST})
     @ResponseBody
-    public Map<String,Object> getUserList(@RequestBody(required = false) Integer meetId,HttpServletRequest http, Principal principal){
+    public Map<String,Object> getUserList(@RequestBody Map<String,Object>data,HttpServletRequest http, Principal principal){
         HashMap<String, Object> resp = new HashMap<>();
+        Integer meetId= (Integer) data.get("meetId");
         resp.put("userList",meetingService.getUserInfo(meetId));
         return resp;
     }

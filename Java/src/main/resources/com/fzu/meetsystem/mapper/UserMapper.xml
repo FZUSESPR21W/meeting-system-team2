@@ -32,7 +32,10 @@
     </select>
     <!--通过分论坛的id获得该论坛下的用户id列表(status为1的用户)-->
     <select id="selectUserByMeetId" resultType="com.fzu.meetsystem.pojo.User">
-        select * from meet_system.user_meeting a,meet_system.user b where a.status=1 and a.user_id=b.id and a.meeting_id=#{meetId}
+        select * from meet_system.user_meeting a,meet_system.user b where a.status=1 and a.user_id=b.id
+        <if test="meetId!=null">
+            and a.meeting_id=#{meetId}
+        </if>
     </select>
     <!--获得一个时间区间内的注册人数-->
     <select id="countRegisterUserByTime" resultType="java.lang.Integer">
