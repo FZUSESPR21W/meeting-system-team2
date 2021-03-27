@@ -38,4 +38,8 @@
     <select id="countRegisterUserByTime" resultType="java.lang.Integer">
         select count(*) `count` from meet_system.user where register_time>#{start} and #{end}>register_time
     </select>
+    <!--用户阅读之后修改阅读状态,1->0-->
+    <update id="pushNews" >
+        update meet_system.user_meeting set has_new =0 where meeting_id=#{meetId} and user_id=#{userId}
+    </update>
 </mapper>

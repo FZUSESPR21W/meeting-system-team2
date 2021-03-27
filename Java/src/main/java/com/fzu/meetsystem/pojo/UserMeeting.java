@@ -10,6 +10,7 @@ public class UserMeeting {
     private Integer meetingId;
     private Timestamp time;
     private Integer status;
+    private Integer hasNew;
 
     public Integer getId() {
         return id;
@@ -49,5 +50,13 @@ public class UserMeeting {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Integer getHasNew() {
+        return hasNew;
+    }
+
+    public void setHasNew(Integer hasNew) {
+        this.hasNew = hasNew;
     }
 }
