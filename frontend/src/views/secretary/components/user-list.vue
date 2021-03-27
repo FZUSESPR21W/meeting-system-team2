@@ -1,10 +1,11 @@
 <template>
   <div>
-    <el-button type="primary" plain style="left:20%;">主要按钮</el-button>
+    <el-button type="primary" plain style="position:relative;left:20%;margin-bottom:20px;margin-top:30px">
+        <i class="el-icon-bell"></i><span>全部提醒</span></el-button>
   <el-table
     :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()) ||
                     data.email.toLowerCase().includes(search.toLowerCase()))"
-    style="width: 70%;position:fixed;right:10%">
+    class="el-table" style="width:70%">
     <el-table-column
       label="邮箱"
       prop="email">
@@ -19,7 +20,7 @@
         <el-input
           v-model="search"
           size="mini"
-          placeholder="输入用户名搜索"/>
+          placeholder="搜索"/>
       </template>
       <template slot-scope="scope">
         <el-button
@@ -47,6 +48,36 @@
           name: '王小虎',
         }, {
           email: '123456789@qq.com',
+          name: '王小虎',
+        }, {
+          email: '123456789@qq.com',
+          name: '王小虎',
+        }, {
+          email: '123456789@qq.com',
+          name: '王小虎',
+        }, {
+          email: '123456789@qq.com',
+          name: '王小虎',
+        }, {
+          email: '123456789@qq.com',
+          name: '王小虎',
+        }, {
+          email: '123456789@qq.com',
+          name: '王小虎',
+        }, {
+          email: '123456789@qq.com',
+          name: '王小虎',
+        }, {
+          email: '123456789@qq.com',
+          name: '王小虎',
+        }, {
+          email: '123456789@qq.com',
+          name: '王小虎',
+        }, {
+          email: '123456789@qq.com',
+          name: '王小虎',
+        }, {
+          email: '123456789@qq.com',
           name: '王大虎',
         }],
         search: ''
@@ -59,3 +90,14 @@
     },
   }
 </script>
+
+<style>
+    .el-table{
+        right:10%;
+        margin-left: 30%;
+        overflow-y:scroll;
+        overflow-x:hidden;
+        top: 0;
+        bottom:0;
+    }
+</style>
