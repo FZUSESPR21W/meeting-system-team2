@@ -38,9 +38,9 @@ export class User {
          * @param username
          * @returns {*}
          */
-    static getUserDetail(username) {
-            return axios.post("", {
-                username: username
+    static getUserInfo() {
+            return axios.post("/user_info", {
+
             })
         }
         /**
