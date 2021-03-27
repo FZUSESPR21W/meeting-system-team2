@@ -14,4 +14,8 @@
     <select id="getNewPost" resultType="com.fzu.meetsystem.pojo.Post">
         select * from meet_system.post where meeting_id=#{meetId} and post_time>#{timestamp}
     </select>
+    <!--/*修改会议消息的阅读状态0->1:有新消息，发送给所有*/-->
+    <update id="pushNews" >
+        update meet_system.user_meeting set has_new =1 where meeting_id=#{meetId}
+    </update>
 </mapper>

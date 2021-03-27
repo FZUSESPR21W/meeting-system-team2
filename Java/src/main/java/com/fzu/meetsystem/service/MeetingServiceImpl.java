@@ -16,6 +16,7 @@ import java.util.Map;
 public class MeetingServiceImpl implements MeetingService {
     @Autowired
     MeetingDao meetingDao;
+    @Autowired
     UserDao userDao;
 
     @Override
