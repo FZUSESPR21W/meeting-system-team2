@@ -1,6 +1,5 @@
 <template>
   <div class="side">
-    <p class="name">XXXXX后台</p>
     <el-menu :default-active="menuActiveIndex" class="el-menu-vertical" :router="true">
       <el-menu-item v-for="(menuItem,index) in menuList" :index="menuItem.path" :key="menuItem.title" v-if="menuItem.permission == permission">
         <i :class="menuItem.icon"/>
@@ -46,7 +45,7 @@ export default {
       this.menuList = [
         {
           //标题
-          title: this.$t('index.personalCenter'),
+          title: this.$t('sidebar.overview'),
           //图表
           icon: 'el-icon-user-solid',
           //url路径
@@ -55,15 +54,27 @@ export default {
           permission: '2'
         },
         {
-          title: this.$t('index.messageCenter'),
+          title: this.$t('sidebar.users'),
           icon: 'el-icon-message-solid',
           path: '/detail',
           permission: '2'
         },
         {
-          title: this.$t('index.logout'),
+          title: this.$t('sidebar.userList'),
           icon: 'el-icon-switch-button',
-          path: '/secretary',
+          path: '/admin/secretary',
+          permission: '2'
+        },
+        {
+          title: this.$t('sidebar.subscribers'),
+          icon: 'el-icon-switch-button',
+          path: '/admin/secretary',
+          permission: '2'
+        },
+        {
+          title: this.$t('sidebar.deliver'),
+          icon: 'el-icon-switch-button',
+          path: '/admin/secretary',
           permission: '2'
         },
         
@@ -75,11 +86,6 @@ export default {
 </script>
     
 <style>
-.name{
-  font-size: 34px;
-  margin: 0;
-  margin-left: 30px;
-  color: #409EFF;
-}
+
      
 </style>
