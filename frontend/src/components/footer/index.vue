@@ -1,6 +1,6 @@
 <template>
-  <div class="footer">
-    <el-row>
+  <div class="footer_contianer">
+    <el-row class="footer_main">
       <el-col :span="4">
         <div></div>
       </el-col>
@@ -64,15 +64,11 @@
   border-radius: 4px;
 }
 
-.footer {
+.footer_main {
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  background-color: white;
-  padding-left: 50%;
-  padding-top: 10px;
-  margin-bottom: -10px;
-  box-shadow:inset 0px 15px 10px -15px #AAAAAA;
+  margin-left: 30%;
+  padding: 10px;
+  padding-bottom: 0;
 }
 
 .footer-font {
@@ -87,6 +83,16 @@
 .el-dropdown-link {
   cursor: pointer;
   color: #AAAAAA;
+}
+
+.footer_contianer {
+  background-color: white;
+  box-shadow:inset 0px 15px 10px -15px #AAAAAA;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 </style>
 

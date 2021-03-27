@@ -1,10 +1,16 @@
 <template>
-  <div>哈喽我是管理员首页</div>
+  <div>
+    <bottomBar />
+  </div>
 </template>
 
 <script>
+import bottomBar from '@/components/footer'
 export default {
-  name: "index"
+  name: "index",
+  components: {
+    bottomBar
+  }
 }
 </script>
 
