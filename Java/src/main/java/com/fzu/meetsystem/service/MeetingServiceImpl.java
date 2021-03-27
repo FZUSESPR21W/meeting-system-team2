@@ -4,6 +4,7 @@ import com.fzu.meetsystem.mapper.MeetingDao;
 import com.fzu.meetsystem.mapper.UserDao;
 import com.fzu.meetsystem.pojo.Meeting;
 import com.fzu.meetsystem.pojo.User;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,20 +17,23 @@ import java.util.Map;
 public class MeetingServiceImpl implements MeetingService {
     @Autowired
     MeetingDao meetingDao;
+    @Autowired
     UserDao userDao;
 
     @Override
-    public List<Map<String, Object>> getMeetList() {
+    public List<Map<String, Object>> getMeetList(String username) {
         List<Map<String, Object>> meetings = new ArrayList<>();
-        for (Meeting meeting : meetingDao.selectAllMeets()) {
+        for (Meeting meeting : meetingDao.selectAllMeets(username)) {
             Map<String, Object> m = new HashMap<>();
-
-            m.put("id", meeting.getId());
+            Integer meetingId=meeting.getId();
+            m.put("id", meetingId);
+            Integer userId=userDao.selectUserByUsername(username).getId();
             m.put("chairman_name", userDao.selectUserById(meeting.getChairmanId()).getUserName());
             m.put("secretary_name", userDao.selectUserById(meeting.getSecretaryId()).getUserName());
             m.put("name", meeting.getName());
             m.put("context", meeting.getContent());
-
+            Integer status=userDao.selectUserStatus(meeting.getId(),userId);
+            m.put("status",status);
             meetings.add(m);
         }
         return meetings;
@@ -42,12 +46,12 @@ public class MeetingServiceImpl implements MeetingService {
 
     @Override
     public List<User> getUserInfo(Integer meetId) {
-        return userDao.selectUserIdByMeetId(meetId);
+        return userDao.selectUserByMeetId(meetId);
     }
 
     @Override
     public boolean joinMeetings(String username, List<Integer> meetIdList) {
-        List<Meeting> hadAttendMeet = userDao.selectAllMeetsByUserId(username);
+        List<Meeting> hadAttendMeet = meetingDao.selectAllMeets(username);
         Integer user_id = userDao.selectUserByUsername(username).getId();
 
         boolean isIn = false;
@@ -86,6 +90,11 @@ public class MeetingServiceImpl implements MeetingService {
                 isSame = false;
         }
         return true;
+    }
+
+    @Override
+    public Integer getMeetingIdByName(String username) {
+        return meetingDao.selectAllMeets(username).get(0).getId();
     }
 
 }

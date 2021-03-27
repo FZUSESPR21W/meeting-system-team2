@@ -3,6 +3,7 @@ package com.fzu.meetsystem.mapper;
 import com.fzu.meetsystem.pojo.Meeting;
 import com.fzu.meetsystem.pojo.Post;
 import com.fzu.meetsystem.pojo.User;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.sql.Timestamp;
@@ -24,14 +25,13 @@ public interface UserDao {
     Integer selectAllUser();
     /*通过权限id获取权限名称*/
     String getAuthorityById(Integer authorityId);
-    /*通过分论坛的id获得该论坛下的用户id列表(status为1的用户)*/
-    List<Integer> selectUserIdByMeetId(Integer meetId);
+    /*通过分论坛的id获得该论坛下的用户实体列表(status为1的用户)*/
+    List<User> selectUserByMeetId(Integer meetId);
     /*获得一个时间区间内的注册人数*/
     Integer countRegisterUserByTime(Timestamp start,Timestamp end);
-
-
-
-
-
+    /*阅读之后修改阅读状态,1->0*/
+    void readNews(Integer meetId,Integer userId);
+    /*查询用户的激活状态*/
+    int selectUserStatus(Integer meetId,Integer userId);
 
 }

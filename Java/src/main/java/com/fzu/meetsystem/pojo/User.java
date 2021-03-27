@@ -6,12 +6,11 @@ import java.sql.Timestamp;
 public class User {
 
     private Integer id;
-    private String userName;
-    private String passWord;
+    private String username;
+    private String password;
     private String email;
     private Integer authorityId;
     private Timestamp registerTime;
-    private Timestamp lastReadTime;
 
     public Integer getId() {
         return id;
@@ -22,19 +21,19 @@ public class User {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getPassWord() {
-        return passWord;
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassWord(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -61,11 +60,4 @@ public class User {
         this.registerTime = registerTime;
     }
 
-    public Timestamp getLastReadTime() {
-        return lastReadTime;
-    }
-
-    public void setLastReadTime(Timestamp lastReadTime) {
-        this.lastReadTime = lastReadTime;
-    }
 }

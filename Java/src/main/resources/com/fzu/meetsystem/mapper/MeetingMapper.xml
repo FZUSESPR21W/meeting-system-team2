@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fzu.meetsystem.mapper.MeetingDao">
+    <!--通过分论坛Id获得分论坛人数-->
+    <select id="countAll" resultType="java.lang.Integer">
+        select count(*) from meet_system.user_meeting where meeting_id=#{meetId}
+    </select>
+    <!--通过用户名(为空则为所有)获得所有分论坛列表-->
+    <select id="selectAllMeets" resultType="com.fzu.meetsystem.pojo.Meeting">
+        select * from meet_system.meeting a, meet_system.user b,meet_system.user_meeting c
+        where  b.id=c.id and a.id=c.id
+        <if test="username!=null">
+        and b.username=#{username}
+        </if>
+    </select>
+</mapper>
