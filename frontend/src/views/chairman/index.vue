@@ -6,11 +6,11 @@
 
     <el-main>
       <h2>会议数据</h2>
-      <div>
+      <div v-if="isShow">
         <Echarts/>
-        <el-button type="primary" id="release">发布会议</el-button>
+        <el-button type="primary" id="release" @click="isShow=!isShow">发布会议</el-button>
+        <p id="num">会议总人数：{{num}}</p>
       </div>
-      <p id="num">会议总人数：{{num}}</p>
     </el-main>
 </el-container>
 
@@ -29,6 +29,7 @@ export default {
     },
     data(){
         return{
+            isShow: true,
             num: 1200,
         }
     },
