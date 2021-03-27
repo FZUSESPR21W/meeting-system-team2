@@ -10,7 +10,7 @@ public interface PostDao {
     /*发布消息*/
     void insertPost(Post post);
     /*查询该论坛下的消息,分页*/
-    List<Post> selectAllPostsByMeetId(Integer meetId);
+    List<Post> selectAllPostsByMeetId(Integer meetId,Integer page,Integer limit);
     /*查找时间戳之后的对应会议Id的 消息列表,分页*/
-    List<Post> getNewPost(Integer meetId, Timestamp timestamp);
+    List<Post> getNewPost(Integer meetId, Timestamp timestamp,Integer page,Integer limit);
 }

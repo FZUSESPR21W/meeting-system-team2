@@ -24,8 +24,8 @@ public interface UserDao {
     Integer selectAllUser();
     /*通过权限id获取权限名称*/
     String getAuthorityById(Integer authorityId);
-    /*通过分论坛的id获得该论坛下的用户id列表(status为1的用户)*/
-    List<Integer> selectUserIdByMeetId(Integer meetId);
+    /*通过分论坛的id获得该论坛下的用户实体列表(status为1的用户)*/
+    List<User> selectUserIdByMeetId(Integer meetId);
     /*获得一个时间区间内的注册人数*/
     Integer countRegisterUserByTime(Timestamp start,Timestamp end);
 
