@@ -1,14 +1,13 @@
 <template>
-<el-container>
+<el-container class="content">
     <el-aside>
       <navBarSide/>
    </el-aside> 
 
     <el-main>
       <h2>会议数据</h2>
-      <div v-if="isShow">
+      <div>
         <Echarts/>
-        <el-button type="primary" id="release" @click="isShow=!isShow">发布会议</el-button>
         <p id="num">会议总人数：{{num}}</p>
       </div>
     </el-main>
@@ -43,15 +42,14 @@ export default {
 </script>
     
 <style>
-  #myChart{
-    float:left;
-  }
-  #relesase{
-    float: right;
-    margin-right: 260px;
-  }
+
   #num{
-    clear: both;
+    margin-left: 500px;
+    margin-top: 50px;
+    
+  }
+  .content{
+    height: 100%;
   }
 
 </style>

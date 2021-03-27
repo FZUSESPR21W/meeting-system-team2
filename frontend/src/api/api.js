@@ -1,6 +1,8 @@
 import axios from './axios'
 
 
+
+
 /**
  * 用户api
  */
@@ -26,48 +28,31 @@ export class User {
      * @returns
      */
     static register(username, password) {
-        return axios.post("/register", {
-            username: username,
-            password: password,
-            meetIdArray: [1, 2, 3],
-        })
-    }
+            return axios.post("/register", {
+                username: username,
+                password: password,
+                meetIdArray: [1, 2, 3],
+            })
+        }
+        /**
+         * 获取用户信息
+         * @param username
+         * @returns {*}
+         */
+    static getUserInfo() {
+            return axios.post("/user_info", {
 
-    /**
-     * 获取用户信息
-     * @param username
-     * @returns {*}
-     */
-    static getUserDetail(username) {
-        return axios.post("", {
-            username: username
-        })
-    }
-
-    /**
-     * 修改用户参加分论坛情况
-     * @param {*} interest
-     * @returns {*}
-     */
+            })
+        }
+        /**
+         * 修改用户参加分论坛情况
+         * @param {*} interest
+         * @returns {*}
+         */
     static modifyUserInterest(interest) {
-        return axios.post("", {
+        return axiox.post("", {
             interest: interest
         })
     }
 
-}
-
-/**
- * 会议接口
- */
-export class Meeting {
-    /**
-     * 获取会议列表
-     * @returns {*}
-     */
-    static getMeetingList() {
-        return axios.post("/meeting_list", {
-
-        })
-    }
 }

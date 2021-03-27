@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- <navBarSide class="sideBar"/> -->
-    <!-- <userList/> -->
-    <notice/>
+    <userList/>
+    <!-- <notice/> -->
   </div>
 </template>
 
