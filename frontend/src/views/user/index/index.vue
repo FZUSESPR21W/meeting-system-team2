@@ -1,13 +1,17 @@
 <template>
   <div>
-    哈喽我是用户首页
+    <navBarTop />
     <router-view />
   </div>
 </template>
 
 <script>
+import navBarTop from '@/components/nav-bar-top'
 export default {
-  name: "index"
+  name: "index",
+  components: {
+    navBarTop
+  }
 }
 </script>
 
