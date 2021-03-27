@@ -2,17 +2,17 @@ package com.fzu.meetsystem.pojo;
 
 public class Meeting {
 
-    private int id;
+    private Integer id;
     private String name;
-    private int chairmanId;
-    private int secretaryId;
+    private Integer chairmanId;
+    private Integer secretaryId;
     private String content;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -24,19 +24,19 @@ public class Meeting {
         this.name = name;
     }
 
-    public int getChairmanId() {
+    public Integer getChairmanId() {
         return chairmanId;
     }
 
-    public void setChairmanId(int chairmanId) {
+    public void setChairmanId(Integer chairmanId) {
         this.chairmanId = chairmanId;
     }
 
-    public int getSecretaryId() {
+    public Integer getSecretaryId() {
         return secretaryId;
     }
 
-    public void setSecretaryId(int secretaryId) {
+    public void setSecretaryId(Integer secretaryId) {
         this.secretaryId = secretaryId;
     }
 

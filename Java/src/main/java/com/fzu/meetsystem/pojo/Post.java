@@ -1,22 +1,22 @@
 package com.fzu.meetsystem.pojo;
 
-import jdk.jfr.Timestamp;
 
+import java.sql.Timestamp;
 
 public class Post {
 
-    private int id;
+    private Integer id;
     private String title;
     private String context;
-    private int authorId;
+    private Integer authorId;
     private Timestamp postTime;
-    private int meetingId;
+    private Integer meetingId;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -36,11 +36,11 @@ public class Post {
         this.context = context;
     }
 
-    public int getAuthorId() {
+    public Integer getAuthorId() {
         return authorId;
     }
 
-    public void setAuthorId(int authorId) {
+    public void setAuthorId(Integer authorId) {
         this.authorId = authorId;
     }
 
@@ -52,11 +52,11 @@ public class Post {
         this.postTime = postTime;
     }
 
-    public int getMeetingId() {
+    public Integer getMeetingId() {
         return meetingId;
     }
 
-    public void setMeetingId(int meetingId) {
+    public void setMeetingId(Integer meetingId) {
         this.meetingId = meetingId;
     }
 }

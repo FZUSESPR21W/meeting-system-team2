@@ -1,22 +1,23 @@
 package com.fzu.meetsystem.pojo;
 
 
-import jdk.jfr.Timestamp;
+import java.sql.Timestamp;
 
 public class User {
 
-    private int id;
+    private Integer id;
     private String userName;
     private String passWord;
     private String email;
-    private int authorityId;
+    private Integer authorityId;
     private Timestamp registerTime;
+    private Timestamp lastReadTime;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -44,11 +45,11 @@ public class User {
         this.email = email;
     }
 
-    public int getAuthorityId() {
+    public Integer getAuthorityId() {
         return authorityId;
     }
 
-    public void setAuthorityId(int authorityId) {
+    public void setAuthorityId(Integer authorityId) {
         this.authorityId = authorityId;
     }
 
@@ -58,5 +59,13 @@ public class User {
 
     public void setRegisterTime(Timestamp registerTime) {
         this.registerTime = registerTime;
+    }
+
+    public Timestamp getLastReadTime() {
+        return lastReadTime;
+    }
+
+    public void setLastReadTime(Timestamp lastReadTime) {
+        this.lastReadTime = lastReadTime;
     }
 }

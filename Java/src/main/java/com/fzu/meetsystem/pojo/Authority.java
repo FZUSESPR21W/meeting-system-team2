@@ -2,14 +2,14 @@ package com.fzu.meetsystem.pojo;
 
 public class Authority {
 
-    private int id;
+    private Integer id;
     private String anthority;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
