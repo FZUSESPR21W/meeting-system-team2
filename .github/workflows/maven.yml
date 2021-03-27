@@ -4,7 +4,7 @@ name: 构建Java后端
 
 on:
   push:
-    branches: [ Java-dev ]
+    branches: [ dev-java ]
 
 jobs:
   build:
