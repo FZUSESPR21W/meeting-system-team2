@@ -4,6 +4,7 @@ import com.fzu.meetsystem.pojo.Post;
 import com.fzu.meetsystem.service.MeetingService;
 import com.fzu.meetsystem.service.PostService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,5 +38,13 @@ public class PostController {
         post.setMeetingId(meetingId);
         postService.sendPost(username,post);
     }
-
+    @ResponseBody
+    @PostMapping("/getPostList")
+    public Map<String,Object> getPostList(@RequestBody Map<String,Object> data,HttpServletRequest http, Principal principal){
+        String username = principal.getName();
+        Integer meetId = (Integer) data.get("meetId");
+        Integer page = (Integer) data.get("page");
+        Integer limit = (Integer) data.get("limit");
+        postService.getPostList(meetId,username,page,limit)
+    }
 }
