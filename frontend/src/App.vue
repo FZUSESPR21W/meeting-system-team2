@@ -1,8 +1,19 @@
 <template>
   <div id="app">
     <router-view />
+    <bottomBar />
   </div>
 </template>
+
+<script>
+import bottomBar from '@/components/footer'
+export default {
+  name: 'app',
+  components: {
+    bottomBar
+  }
+}
+</script>
 
 <style>
 html {
