@@ -1,26 +1,33 @@
 <template>
-    <div class="register_label">
-        <div class="outer_label">
-            <div class="register_title">用户注册</div>
+    <div>
+        <navBarTop />
+        <div class="register_label">
+            <div class="outer_label">
+                <div class="register_title">{{$t('register.title')}}</div>
+            </div>
+            <div class="inner_label">
+                <form action="" class="register_form">
+                    <label for="register_field" class="register_form_field">{{$t('register.username')}}<a style="color:red;"> *</a></label>
+                    <el-input type="text" class="form_label"  v-model="userName"></el-input>
+                    <label for="pwd_field" class="register_form_field">{{$t('register.password')}}<a style="color:red;"> *</a></label>
+                    <el-input type="text" class="form_label"  v-model="password"></el-input> 
+                    <label for="rePwd_field" class="register_form_field">{{$t('register.rePassword')}}<a style="color:red;"> *</a></label>
+                    <el-input type="text" class="form_label" v-model="rePassword"></el-input>   
+                    <el-button class="register_btn" @click.native="register">{{$t('register.register')}}</el-button>
+                </form>
+            
+            </div>    
         </div>
-        <div class="inner_label">
-            <form action="" class="register_form">
-                <label for="register_field" class="register_form_field">用户名</label>
-                <el-input type="text" class="form_label"  v-model="userName"></el-input>
-                <label for="pwd_field" class="register_form_field">输入密码</label>
-                <el-input type="text" class="form_label"  v-model="password"></el-input> 
-                <label for="rePwd_field" class="register_form_field">重复输入密码</label>
-                <el-input type="text" class="form_label" v-model="rePassword"></el-input>   
-                <el-button class="register_btn" @click.native="register">注册</el-button>
-            </form>
-        
-        </div>    
     </div>
 </template>
 
 <script>
+import navBarTop from '@/components/nav-bar-top';
 export default {
 name: "index",
+components: {
+    navBarTop
+  },
 data() {
     return {
         userName: '',

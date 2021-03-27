@@ -14,6 +14,23 @@ export const index = {
     day: 'Day'
 }
 
+export const login = {
+    title: 'Sign in OurWork',
+    username: 'Username',
+    password: 'Password',
+    login: 'Sign in',
+    register: 'Create an account',
+    hint: 'New to here? '
+}
+
+export const register = {
+    title: 'Sign up',
+    username: 'Username',
+    password: 'Password',
+    rePassword: 'Repate your password',
+    register: 'Create your account',
+}
+
 export const user = {
     hello: 'hello user'
 }
