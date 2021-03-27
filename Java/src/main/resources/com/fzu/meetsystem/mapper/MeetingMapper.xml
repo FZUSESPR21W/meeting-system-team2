@@ -8,9 +8,12 @@
     <!--通过用户名(为空则为所有)获得所有分论坛列表-->
     <select id="selectAllMeets" resultType="com.fzu.meetsystem.pojo.Meeting">
         select * from meet_system.meeting a, meet_system.user b,meet_system.user_meeting c
-        where  b.id=c.id and a.id=c.id
+        where  b.id=c.user_id and a.id=c.meeting_id
         <if test="username!=null">
-        and b.username=#{username}
+            and b.username=#{username}
         </if>
+    </select>
+    <select id="selectAllMeetings" resultType="com.fzu.meetsystem.pojo.Meeting">
+        select * from meeting
     </select>
 </mapper>

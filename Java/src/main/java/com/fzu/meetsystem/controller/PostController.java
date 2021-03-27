@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -41,10 +42,13 @@ public class PostController {
     @ResponseBody
     @PostMapping("/getPostList")
     public Map<String,Object> getPostList(@RequestBody Map<String,Object> data,HttpServletRequest http, Principal principal){
+        Map<String, Object> resp= new HashMap<>();
         String username = principal.getName();
         Integer meetId = (Integer) data.get("meetId");
         Integer page = (Integer) data.get("page");
         Integer limit = (Integer) data.get("limit");
-        postService.getPostList(meetId,username,page,limit)
+        List<Post> postList = postService.getPostList(meetId, username, page, limit);
+        resp.put("postList",postList);
+        return resp;
     }
 }

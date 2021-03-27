@@ -21,8 +21,16 @@ public class PostServiceImpl implements PostService{
     @Autowired
     private MeetingDao meetingDao;
     @Override
-    public List<Post> getPostList(Integer meetId, Integer page, Integer limit) {
-        List<Post> postList = postDao.selectAllPostsByMeetId(meetId, page, limit);
+    public List<Post> getPostList(Integer meetId,String username, Integer page, Integer limit) {
+        List<Post> postList=null;
+        if(page!=null&&limit!=null)
+        postList = postDao.selectAllPostsByMeetId(meetId, page*limit, limit);
+        else
+            postList = postDao.selectAllPostsByMeetId(meetId, null, null);
+        if(username!=null){
+            User user = userDao.selectUserByUsername(username);
+            userDao.readNews(meetId,user.getId());
+        }
         return postList;
     }
 

@@ -10,5 +10,5 @@ public interface MeetingDao {
     List<Meeting> selectAllMeets(String username);
     /*通过分论坛Id获得分论坛人数*/
     Integer countAll(Integer meetId);
-
+    List<Meeting>selectAllMeetings();
 }

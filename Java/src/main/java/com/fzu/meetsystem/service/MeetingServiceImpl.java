@@ -21,6 +21,21 @@ public class MeetingServiceImpl implements MeetingService {
     UserDao userDao;
 
     @Override
+    public List<Map<String, Object>> getAllMeetList() {
+        List<Map<String, Object>> meetings = new ArrayList<>();
+        for (Meeting meeting : meetingDao.selectAllMeetings()) {
+            Map<String, Object> m = new HashMap<>();
+            Integer meetingId=meeting.getId();
+            m.put("id", meetingId);
+            m.put("chairman_name", userDao.selectUserById(meeting.getChairmanId()).getUserName());
+            m.put("secretary_name", userDao.selectUserById(meeting.getSecretaryId()).getUserName());
+            m.put("name", meeting.getName());
+            m.put("context", meeting.getContent());
+            meetings.add(m);
+        }
+        return meetings;
+    }
+    @Override
     public List<Map<String, Object>> getMeetList(String username) {
         List<Map<String, Object>> meetings = new ArrayList<>();
         for (Meeting meeting : meetingDao.selectAllMeets(username)) {

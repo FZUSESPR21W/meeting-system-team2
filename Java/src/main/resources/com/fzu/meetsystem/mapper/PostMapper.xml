@@ -8,7 +8,13 @@
     </insert>
     <!--查询该论坛下的消息,分页-->
     <select id="selectAllPostsByMeetId" resultType="com.fzu.meetsystem.pojo.Post" parameterType="java.lang.Integer">
-        select * from meet_system.post where meeting_id=#{meetId} limit #{page},#{limit}
+        select * from meet_system.post
+        <if test="meetId!=null">
+            where meeting_id=#{meetId}
+        </if>
+        <if test="limit!=null">
+            limit #{page},#{limit}
+        </if>
     </select>
     <!--查找时间戳之后的对应会议Id的 消息列表,分页-->
     <select id="getNewPost" resultType="com.fzu.meetsystem.pojo.Post">

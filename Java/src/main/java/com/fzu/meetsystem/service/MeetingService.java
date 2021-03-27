@@ -1,6 +1,7 @@
 package com.fzu.meetsystem.service;
 
 
+import com.fzu.meetsystem.pojo.Meeting;
 import com.fzu.meetsystem.pojo.User;
 import org.springframework.stereotype.Service;
 
@@ -30,4 +31,5 @@ public interface MeetingService {
     boolean joinMeetings(String username,List<Integer> meetIdList);
     //通过秘书名字得到会议id
     Integer getMeetingIdByName(String username);
+    public List<Map<String, Object>> getAllMeetList();
 }
