@@ -6,10 +6,10 @@
         <i :class="menuItem.icon"/>
         {{ menuItem.title }}
       </el-menu-item>
-      <el-submenu index="#">
+      <el-submenu index="">
         <template slot="title">{{ $t('index.language') }}</template>
-        <el-menu-item index="2-1" @click="changeLanguage('zh')">中文</el-menu-item>
-        <el-menu-item index="2-2" @click="changeLanguage('en')">English</el-menu-item>
+        <el-menu-item index="" @click="changeLanguage('zh')">中文</el-menu-item>
+        <el-menu-item index="" @click="changeLanguage('en')">English</el-menu-item>
       </el-submenu>
     </el-menu>
   </div>
