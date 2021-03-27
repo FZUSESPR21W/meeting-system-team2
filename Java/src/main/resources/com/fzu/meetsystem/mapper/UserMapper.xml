@@ -31,15 +31,15 @@
         select authority from meet_system.authority where id=#{authorityId}
     </select>
     <!--通过分论坛的id获得该论坛下的用户id列表(status为1的用户)-->
-    <select id="selectUserIdByMeetId" resultType="java.lang.Integer">
-        select user_id from meet_system.user_meeting where status=1
+    <select id="selectUserByMeetId" resultType="com.fzu.meetsystem.pojo.User">
+        select * from meet_system.user_meeting a,meet_system.user b where a.status=1 and a.user_id=b.id and a.meeting_id=#{meetId}
     </select>
     <!--获得一个时间区间内的注册人数-->
     <select id="countRegisterUserByTime" resultType="java.lang.Integer">
         select count(*) `count` from meet_system.user where register_time>#{start} and #{end}>register_time
     </select>
     <!--用户阅读之后修改阅读状态,1->0-->
-    <update id="pushNews" >
+    <update id="readNews" >
         update meet_system.user_meeting set has_new =0 where meeting_id=#{meetId} and user_id=#{userId}
     </update>
 </mapper>

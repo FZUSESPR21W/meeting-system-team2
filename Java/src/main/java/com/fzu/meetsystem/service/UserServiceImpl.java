@@ -3,6 +3,7 @@ package com.fzu.meetsystem.service;
 import com.fzu.meetsystem.mapper.UserDao;
 import com.fzu.meetsystem.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,8 +63,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void readNew(Integer meetingId, String username) {
-        User user = userDao.selectUserByUsername(username);
-        userDao.readNews(meetingId, user.getId());
+    public void readNews(Integer meetingId, String username) {
+        User user=userDao.selectUserByUsername(username);
+        userDao.readNews(meetingId,user.getId());
     }
 }

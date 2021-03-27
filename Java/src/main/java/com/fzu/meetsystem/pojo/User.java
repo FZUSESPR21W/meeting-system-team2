@@ -11,7 +11,6 @@ public class User {
     private String email;
     private Integer authorityId;
     private Timestamp registerTime;
-    private Timestamp lastReadTime;
 
     public Integer getId() {
         return id;
@@ -61,11 +60,4 @@ public class User {
         this.registerTime = registerTime;
     }
 
-    public Timestamp getLastReadTime() {
-        return lastReadTime;
-    }
-
-    public void setLastReadTime(Timestamp lastReadTime) {
-        this.lastReadTime = lastReadTime;
-    }
 }

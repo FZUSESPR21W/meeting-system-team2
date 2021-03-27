@@ -20,9 +20,9 @@ public class MeetingServiceImpl implements MeetingService {
     UserDao userDao;
 
     @Override
-    public List<Map<String, Object>> getMeetList() {
+    public List<Map<String, Object>> getMeetList(String username) {
         List<Map<String, Object>> meetings = new ArrayList<>();
-        for (Meeting meeting : meetingDao.selectAllMeets()) {
+        for (Meeting meeting : meetingDao.selectAllMeets(username)) {
             Map<String, Object> m = new HashMap<>();
 
             m.put("id", meeting.getId());
@@ -48,7 +48,7 @@ public class MeetingServiceImpl implements MeetingService {
 
     @Override
     public boolean joinMeetings(String username, List<Integer> meetIdList) {
-        List<Meeting> hadAttendMeet = meetingDao.selectAllMeetsByUsername(username);
+        List<Meeting> hadAttendMeet = meetingDao.selectAllMeets(username);
         Integer user_id = userDao.selectUserByUsername(username).getId();
 
         boolean isAttendNewMeet = false;
