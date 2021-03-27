@@ -11,9 +11,9 @@
 </style>
 <script>
 import bottomBar from '@/components/footer'
-import userList from './components/user-list.vue'
+import userList from '../components/user-list.vue'
 import navBarSide from '@/components/nav-bar-side'
-import notice from './components/notice'
+import notice from '../components/notice'
 
 export default {
   name: "index",
@@ -74,8 +74,5 @@ body > .el-container {
   box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
   background:white;
 }
- .sideBar{
-    width:18%;
-    position: absolute;
-  }
+
 </style>
