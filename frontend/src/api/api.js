@@ -85,3 +85,9 @@ export class Meeting {
         return axios.post('/meeting_list', {})
     }
 }
+
+export class Echarts {
+    static getSubNum() {
+         return axios.get("/bar_graph")
+    }
+}

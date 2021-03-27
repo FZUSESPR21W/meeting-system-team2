@@ -11,10 +11,18 @@ export default {
     }
   },
   mounted(){
-    this.initChart();
+    let userNum = []
+    this.$api.Echarts.getSubNum().
+    then(res => {
+        userNum = [res.data.data.list[1],res.data.data.list[2],res.data.data.list[3]]
+        this.initChart(userNum);
+        console.log(userNum)
+    })
+    
   },
   methods: {
-    initChart(){
+    initChart(userNum){
+        
         // 基于准备好的dom，初始化echarts实例
         let sumChart = this.$echarts.init(document.getElementById('sumChart'))
         // 绘制图表
@@ -30,7 +38,7 @@ export default {
             series: [{
                 name: '关注人数',
                 type: 'bar',
-                data: [66,77,88],
+                data: userNum,
                 smooth: true,
                 itemStyle: {
                     normal: {
@@ -42,6 +50,8 @@ export default {
                 }
             }]
         });
+
+        
     }
   }
 }
