@@ -1,52 +1,30 @@
 <template>
   <div class="footer_contianer">
-    <el-row class="footer_main">
-      <el-col :span="4">
-        <div></div>
-      </el-col>
-      <el-col :span="2">
-        <div>
-          <a href="" class="footer-font">{{ footerList[0].title }}</a>
-        </div>
-      </el-col>
-      <el-col :span="2">
-        <div>
-          <el-dropdown :hide-on-click="false">
-        <span class="el-dropdown-link">
-            {{ footerList[1].title }}<i class="el-icon-arrow-down el-icon--right"></i>
-        </span>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item @click.native="openGithub('https://github.com/RoseSavona')">肖恩嘻嘻</el-dropdown-item>
-                <el-dropdown-item @click.native="openGithub('https://github.com/yrc123')">羊肉串</el-dropdown-item>
-                <el-dropdown-item @click.native="openGithub('https://github.com/2018FZUSELYK')">YukioLee
-                </el-dropdown-item>
-                <el-dropdown-item @click.native="openGithub('https://github.com/221801123')">WiLLyy</el-dropdown-item>
-                <el-dropdown-item @click.native="openGithub('https://github.com/GaryChan029')">CLH029</el-dropdown-item>
-                <el-dropdown-item @click.native="openGithub('https://github.com/Liangdayi')">不到65kg不改名
-                </el-dropdown-item>
-                <el-dropdown-item @click.native="openGithub('https://github.com/Aurora418')">Aurora</el-dropdown-item>
-                <el-dropdown-item @click.native="openGithub('https://github.com/raiLGun2000')">railgunSE
-                </el-dropdown-item>
-                <el-dropdown-item @click.native="openGithub('https://github.com/6586744')">6586744</el-dropdown-item>
-                <el-dropdown-item @click.native="openGithub('https://github.com/Mr-Qingkong')">至沁</el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
-        </div>
-      </el-col>
-      <el-col :span="8">
-        <div>
-          <a href="" class="footer-font">Copyright ©2021 发际线与我作队, All Rights Reserved.</a>
-        </div>
-      </el-col>
-      <el-col :span="3">
-        <div>
-          <a href="" class="footer-font">{{ footerList[2].title }}</a>
-        </div>
-      </el-col>
-      <el-col :span="5"></el-col>
-    </el-row>
+      <a href="" class="footer-font">{{ footerList[0].title }}</a>
+      <el-dropdown :hide-on-click="false">
+            <span class="el-dropdown-link">
+                {{ footerList[1].title }}<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item @click.native="openGithub('https://github.com/RoseSavona')">肖恩嘻嘻</el-dropdown-item>
+            <el-dropdown-item @click.native="openGithub('https://github.com/yrc123')">羊肉串</el-dropdown-item>
+            <el-dropdown-item @click.native="openGithub('https://github.com/2018FZUSELYK')">YukioLee
+            </el-dropdown-item>
+            <el-dropdown-item @click.native="openGithub('https://github.com/221801123')">WiLLyy</el-dropdown-item>
+            <el-dropdown-item @click.native="openGithub('https://github.com/GaryChan029')">CLH029</el-dropdown-item>
+            <el-dropdown-item @click.native="openGithub('https://github.com/Liangdayi')">不到65kg不改名
+            </el-dropdown-item>
+            <el-dropdown-item @click.native="openGithub('https://github.com/Aurora418')">Aurora</el-dropdown-item>
+            <el-dropdown-item @click.native="openGithub('https://github.com/raiLGun2000')">railgunSE
+            </el-dropdown-item>
+            <el-dropdown-item @click.native="openGithub('https://github.com/6586744')">6586744</el-dropdown-item>
+            <el-dropdown-item @click.native="openGithub('https://github.com/Mr-Qingkong')">至沁</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+      <a href="" class="footer-font">Copyright ©2021 发际线与我作队, All Rights Reserved.</a>
+      <a href="" class="footer-font">{{ footerList[2].title }}</a>
   </div>
 </template>
 
@@ -64,12 +42,6 @@
   border-radius: 4px;
 }
 
-.footer_main {
-  width: 100%;
-  margin-left: 30%;
-  padding: 10px;
-  padding-bottom: 0;
-}
 
 .footer-font {
   color: #AAAAAA;
@@ -91,8 +63,11 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  padding: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
 }
 </style>
 
