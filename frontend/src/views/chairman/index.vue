@@ -5,8 +5,12 @@
    </el-aside> 
 
     <el-main>
-      <h2>时间分布图</h2>
-      <Echarts/>
+      <h2>会议数据</h2>
+      <div>
+        <Echarts/>
+        <el-button type="primary" id="release">发布会议</el-button>
+      </div>
+      <p id="num">会议总人数：{{num}}</p>
     </el-main>
 </el-container>
 
@@ -25,7 +29,7 @@ export default {
     },
     data(){
         return{
-            msg: "Welcome to Your Vue.js App"
+            num: 1200,
         }
     },
     
@@ -38,5 +42,15 @@ export default {
 </script>
     
 <style>
-     
+  #myChart{
+    float:left;
+  }
+  #relesase{
+    float: right;
+    margin-right: 260px;
+  }
+  #num{
+    clear: both;
+  }
+
 </style>
