@@ -10,6 +10,9 @@
         <template slot="title">{{ $t('index.language') }}</template>
         <el-menu-item index="" @click="changeLanguage('zh')">中文</el-menu-item>
         <el-menu-item index="" @click="changeLanguage('en')">English</el-menu-item>
+        <el-menu-item index="" @click="changeLanguage('ja')">日本語</el-menu-item>
+        <el-menu-item index="" @click="changeLanguage('fr')">Français</el-menu-item>
+        <el-menu-item index="" @click="changeLanguage('de')">Deutsch</el-menu-item>
       </el-submenu>
     </el-menu>
   </div>

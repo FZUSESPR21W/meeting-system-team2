@@ -52,3 +52,7 @@ export const footer = {
     clause: 'clause',
     aboutUs: 'about us',
 }
+
+export const message = {
+    myMeetings: 'My Meetings'
+}
