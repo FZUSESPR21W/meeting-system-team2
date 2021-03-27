@@ -1,8 +1,6 @@
 import axios from './axios'
 
 
-
-
 /**
  * 用户api
  */
@@ -14,44 +12,62 @@ export class User {
      * @returns {*}
      */
     static login(username, password) {
-            return axios.post("/login", {
-                username: username,
-                password: password
-            })
-        }
-        /**
-         * 注册
-         * @param username
-         * @param password
-         * @param rePassword
-         * @returns
-         */
+        return axios.post("/login", {
+            username: username,
+            password: password
+        })
+    }
+
+    /**
+     * 注册
+     * @param username
+     * @param password
+     * @param rePassword
+     * @returns
+     */
     static register(username, password) {
-            return axios.post("/register", {
-                username: username,
-                password: password,
-                meetIdArray: [1, 2, 3],
-            })
-        }
-        /**
-         * 获取用户信息
-         * @param username
-         * @returns {*}
-         */
+        return axios.post("/register", {
+            username: username,
+            password: password,
+            meetIdArray: [1, 2, 3],
+        })
+    }
+
+    /**
+     * 获取用户信息
+     * @param username
+     * @returns {*}
+     */
     static getUserDetail(username) {
-            return axios.post("", {
-                username: username
-            })
-        }
-        /**
-         * 修改用户参加分论坛情况
-         * @param {*} interest
-         * @returns {*}
-         */
+        return axios.post("", {
+            username: username
+        })
+    }
+
+    /**
+     * 修改用户参加分论坛情况
+     * @param {*} interest
+     * @returns {*}
+     */
     static modifyUserInterest(interest) {
-        return axiox.post("", {
+        return axios.post("", {
             interest: interest
         })
     }
 
+}
+
+/**
+ * 会议接口
+ */
+export class Meeting {
+    /**
+     * 获取会议列表
+     * @returns {*}
+     */
+    static getMeetingList() {
+        return axios.post("/meeting_list", {
+
+        })
+    }
 }
