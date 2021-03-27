@@ -19,7 +19,6 @@
       <p class="meeting_list_title">{{ $t('index.subForum') }}</p>
       <meetingList />
     </div>
-    <bottomBar />
   </div>
 </template>
 

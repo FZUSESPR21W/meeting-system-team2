@@ -13,7 +13,7 @@
 </style>
 <script>
 import navBarTop from '@/components/nav-bar-top'
-import bottomBar from '@/components/footer'
+
 
 export default {
   name: "index",
