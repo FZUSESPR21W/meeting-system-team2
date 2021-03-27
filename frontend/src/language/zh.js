@@ -14,6 +14,15 @@ export const index = {
     day: '会议日程',
 }
 
+export const login = {
+    title: '用户登录',
+    username: '用户名',
+    password: '密码',
+    login: '登录',
+    register: '注册',
+    hint: '还没有账号？'
+}
+
 export const user = {
     hello: '哈喽用户'
 }

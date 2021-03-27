@@ -3,5 +3,9 @@ export default {
     component: () =>
         import ("@/views/user/index"),
 
-    children: []
+    children: [{
+        path: 'center',
+        component: () =>
+            import ("@/views/user/center"),
+    }]
 }

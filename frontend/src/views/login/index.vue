@@ -1,7 +1,9 @@
 <template>
     <div class="login_label">
+        <navBarTop />
         <div class="outer_label">
             <div class="login_title">用户登录</div>
+            
         </div>
         <div class="inner_label">
             <form action="" class="login_form">
@@ -19,8 +21,12 @@
 </template>
 
 <script>
+import navBarTop from '@/components/nav-bar-top';
 export default {
 name: "index",
+components: {
+    navBarTop
+  },
 data() {
     return {
         userName: '',
