@@ -56,23 +56,16 @@ export default {
   name: "index",
   data() {
     return {
-      localUserName: localStorage.getItem("username"),
-      localEmail: localStorage.getItem("email"),
-      loaclrTime: localStorage.getItem("registerTime"),
+      localUserName: this.$store.state.userData.name,
+      localEmail: this.$store.state.userData.email,
+      loaclrTime: this.$store.state.userData.registerTime,
       ml_ischeck: true,
       net_ischeck: false,
       tp_ischeck: false,
     };
   },
   created() {
-    this.$api.User.getUserInfo().then((res) => {
-      localStorage.setItem("username", res.data.data.userList.userName);
-      localStorage.setItem("email", res.data.data.userList.email);
-      localStorage.setItem(
-        "registerTime",
-        res.data.data.userList.registerTime
-      );
-    });
+
   },
 };
 </script>

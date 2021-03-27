@@ -6,17 +6,17 @@
       <p class="president_describe">{{ $t('index.subForumPresident') }}</p>
       <div class="president">
         <i class="el-icon-user-solid icon" />
-        <p class="president_name">{{ data.president }}</p>
+        <p class="president_name">{{ data.chairman_name }}</p>
       </div>
       <div>
         <p class="meeting_describe">
-          {{ data.describe }}
+          {{ data.context }}
         </p>
       </div>
       <el-button type="primary" class="meeting_button" plain>{{ $t('index.checkForumDetail') }}</el-button>
       <div class="meeting_start_time">
         <i class="el-icon-time" />
-        {{ data.conveneTime }}
+        2021-3-27
       </div>
     </el-card>
 </template>

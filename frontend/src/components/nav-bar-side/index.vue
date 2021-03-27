@@ -6,7 +6,6 @@
         {{ menuItem.title }}
       </el-menu-item>
 
-  
     </el-menu>
   </div>
     

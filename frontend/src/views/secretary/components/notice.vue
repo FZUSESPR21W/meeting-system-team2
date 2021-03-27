@@ -1,5 +1,5 @@
 <template>
-    <div style="position: fixed;left:5%">
+    <div style="position: fixed;left:30%;top:20%">
         <h2>发送消息</h2>
         <el-input
             type="text"

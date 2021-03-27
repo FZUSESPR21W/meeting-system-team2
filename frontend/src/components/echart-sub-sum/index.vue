@@ -1,5 +1,5 @@
 <template>
-<div id="sumChart" :style="{width: '666px', height: '666px',left: '500px',top: '50px',}"></div>
+<div id="sumChart" :style="{width: '666px', height: '560px',left: '500px',top: '50px',}"></div>
 </template>
 
 <script>

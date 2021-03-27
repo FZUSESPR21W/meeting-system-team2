@@ -29,9 +29,7 @@ import bottomBar from '@/components/footer'
 export default {
   name: "index",
   components: {
-    navBarTop,
-    meetingList,
-    bottomBar
+    meetingList
   }
 }
 </script>
@@ -72,6 +70,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 50px;
 }
 
 .meeting_list_title {
