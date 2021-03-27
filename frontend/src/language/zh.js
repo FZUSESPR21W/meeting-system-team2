@@ -34,3 +34,8 @@ export const register = {
 export const user = {
     hello: '哈喽用户'
 }
+export const footer={
+    meetings:'关于会议',
+    aboutUs:'关于我们',
+    clause:'条款',
+}

@@ -34,3 +34,9 @@ export const register = {
 export const user = {
     hello: 'hello user'
 }
+
+export const footer={
+    meetings:'meetings',
+    clause:'clause',
+    aboutUs:'about us',
+}
