@@ -11,7 +11,7 @@ export const index = {
     subForumPresident: 'サブフォーラム大統領',
     checkForumDetail: 'フォーラムの詳細をチェックする',
     meetingSchedule: '会議予定',
-    day: '会议日程',
+    day: '会議日',
 }
 
 export const login = {
