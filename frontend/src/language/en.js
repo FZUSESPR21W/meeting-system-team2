@@ -47,6 +47,14 @@ export const interest = {
     neuralNetwork: 'Neural Network',
 }
 
+export const sidebar = {
+    overview: 'Overview',
+    users: 'Users',
+    userList: 'UserList',
+    subscribers: 'Subscribers',
+    release: 'Release Message',
+}
+
 export const footer = {
     meetings: 'meetings',
     clause: 'clause',
