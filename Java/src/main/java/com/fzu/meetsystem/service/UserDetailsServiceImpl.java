@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collections;
 
 @Service
-class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
     //注入UserRoleService，可以通过用户名查询用户信息和权限列表
     @Autowired
     UserDao userDao;
