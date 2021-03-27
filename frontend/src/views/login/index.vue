@@ -1,6 +1,5 @@
 <template>
   <div>
-    <navBarTop />
     <div class="login_label">
       <div class="outer_label">
         <div class="login_title">{{ $t("login.title") }}</div>
@@ -23,7 +22,7 @@
             class="form_label"
             v-model="password"
           ></el-input>
-          <el-button class="login_btn" @click.native="login">{{
+          <el-button class="login_btn" @click="login">{{
             $t("login.login")
           }}</el-button>
         </form>
@@ -49,11 +48,29 @@ export default {
     return {
       userName: "",
       password: "",
-    };
+    }
   },
   methods: {
     login() {
-      // this.$api.User.login(params).then(res => {})
+      this.$api.User.login(this.userName,this.password).then(res => {
+        if (res.data.message === 'success') {
+            //localStorage.setItem('username',this.userName)
+            //localStorage.setItem('authority',res.data.data.authority)
+            this.$message.success('登录成功')
+            // alert('登录成功！')
+            if (res.data.data.authority === 1) { //普通用户
+                this.$router.push('/user')
+            } else if (res.data.data.authority === 2) { //分论坛主席
+                //this.$router.push('/')
+            } else if (res.data.data.authority === 3) { //秘书
+                //this.$router.push('/')
+            } else if (res.data.data.authority === 4) { //大主席
+                //this.$router.push('/')
+            }
+        } else if (res.data.message === 'failed') {
+            this.$message.error('用户名或密码错误')
+        }
+      })
     },
   },
 };

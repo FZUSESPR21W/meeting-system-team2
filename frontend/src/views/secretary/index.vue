@@ -1,8 +1,8 @@
 <template>
   <div>
-    <navBarSide class="sideBar"/>
-    <userList/>
-    <bottomBar/>
+    <!-- <navBarSide class="sideBar"/> -->
+    <!-- <userList/> -->
+    <notice/>
   </div>
 </template>
 
@@ -13,6 +13,7 @@
 import bottomBar from '@/components/footer'
 import userList from './components/user-list.vue'
 import navBarSide from '@/components/nav-bar-side'
+import notice from './components/notice'
 
 export default {
   name: "index",
@@ -20,6 +21,7 @@ export default {
     bottomBar,
     userList,
     navBarSide,
+    notice,
   }, 
 }
 </script>

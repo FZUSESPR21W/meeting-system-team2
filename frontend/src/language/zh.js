@@ -52,3 +52,7 @@ export const footer = {
     aboutUs: '关于我们',
     clause: '条款',
 }
+
+export const message = {
+    myMeetings: '我参加的会议'
+}

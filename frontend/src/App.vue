@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <navBarTop />
     <router-view />
     <bottomBar />
   </div>
@@ -7,10 +8,12 @@
 
 <script>
 import bottomBar from '@/components/footer'
+import navBarTop from '@/components/nav-bar-top'
 export default {
   name: 'app',
   components: {
-    bottomBar
+    bottomBar,
+    navBarTop
   }
 }
 </script>

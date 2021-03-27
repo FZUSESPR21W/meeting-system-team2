@@ -68,7 +68,7 @@ export default {
 }
 .detail_span{
   color: gray;
-  width: 8%;
+  width: 200px;
   /* background-color: violet; */
   /* display: inline; */
   display:inline-block;
