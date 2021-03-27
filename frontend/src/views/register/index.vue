@@ -56,7 +56,25 @@ export default {
   },
   methods: {
     register() {
-      // this.$api.User.login(params).then(res => {})
+        if(this.password === this.rePassword) {
+            this.$api.User.register(this.userName,this.password,this.rePassword)
+            .then(res => {
+                if(res.data.message === 'success') {
+                    //localStorage.setItem('username',this.userName)
+                    //localStorage.setItem('authority',res.data.authority)
+                    this.$message.success('注册成功，正在为您跳转……')
+
+                    //跳转
+                } else if (res.data.message === 'failed') {
+                    this.$message.error('用户名已被注册')
+                }
+            })
+            .then(res => {
+                console.log(res.error)
+            })
+        } else {
+            this.$message.error('两次密码不一致')
+        }
     },
   },
 };

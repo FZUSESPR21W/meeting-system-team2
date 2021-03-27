@@ -9,13 +9,13 @@ import axios from './axios'
 export class User {
     /**
      * 登录
-     * @param email
+     * @param username
      * @param password
      * @returns {*}
      */
-    static login(email, password) {
-            return axios.post("", {
-                email: email,
+    static login(username, password) {
+            return axios.post("/login", {
+                username: username,
                 password: password
             })
         }
@@ -26,11 +26,11 @@ export class User {
          * @param rePassword
          * @returns
          */
-    static register(username, password, rePassword) {
-            return axios.post("", {
+    static register(username, password) {
+            return axios.post("/register", {
                 username: username,
                 password: password,
-                rePassword: rePassword,
+                meetIdArray: [1, 2, 3],
             })
         }
         /**

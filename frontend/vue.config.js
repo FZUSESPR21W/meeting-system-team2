@@ -1,7 +1,6 @@
 var path = require("path");
 
-const resolve = url =>
-{
+const resolve = url => {
     return path.join(__dirname, url);
 };
 
@@ -25,18 +24,17 @@ module.exports = {
         }
     },
 
-    //代理 防跨域问题
-    // devServer: {
-    //     proxy: {
-    //         '/api': {
-    //             target: "",
-    //             changeOrigin: true,
-    //             pathRewrite: {
-    //                 '^/api': ''
-    //             }
-    //         }
-    //     }
-    // },
+    devServer: {
+        proxy: {
+            '/api': {
+                target: "http://120.77.84.235:8081/api",
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/api': ''
+                }
+            }
+        }
+    },
 
     lintOnSave: false
 };
