@@ -23,7 +23,7 @@ export class User {
      * @returns {*}
      */
     static logout(username, password) {
-        return axios.get("/logout" )
+        return axios.get("/logout")
     }
 
     /**
@@ -60,7 +60,16 @@ export class User {
             interest: interest
         })
     }
+    static getJointMeet(username) {
+        return axios.post("", {
 
+        })
+    }
+    static modifyUserInterest(meetList) {
+        return axios.post("", {
+
+        })
+    }
 }
 
 /**

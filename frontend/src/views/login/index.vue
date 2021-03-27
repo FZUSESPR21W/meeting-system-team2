@@ -21,6 +21,7 @@
               type="text"
               class="form_label"
               v-model="password"
+              show-password
           ></el-input>
           <el-button class="login_btn" @click="login">{{
               $t("login.login")

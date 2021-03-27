@@ -17,19 +17,28 @@ const routes = [
         path: '/',
         name: 'Index',
         component: () =>
-            import ("@/views/index")
+            import ("@/views/index"),
+        meta: {
+            title: '首页'
+        }
     },
     {
         path: '/login',
         name: 'Login',
         component: () =>
-            import ("@/views/login")
+            import ("@/views/login"),
+        meta: {
+            title: '登录'
+        }
     },
     {
         path: '/register',
         name: 'Register',
         component: () =>
-            import ("@/views/register")
+            import ("@/views/register"),
+        meta: {
+            title: '注册'
+        }
     },
     user,
     admin,
@@ -43,6 +52,14 @@ const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes
+})
+
+router.beforeEach((to, from, next) => {
+    /* 路由发生变化修改页面title */
+    if (to.meta.title) {
+        document.title = to.meta.title
+    }
+    next()
 })
 
 export default router

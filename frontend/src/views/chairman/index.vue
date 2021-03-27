@@ -39,12 +39,10 @@ export default {
 <style>
 
   #num{
-    margin-left: 500px;
+    margin-left: 900px;
     margin-top: 50px;
-    
+    font-size: 20pt;
   }
-  .content{
-    height: 100%;
-  }
+
 
 </style>

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <navBarTop />
     <div class="register_label">
       <div class="outer_label">
         <div class="register_title">{{ $t('register.title') }}</div>
@@ -14,22 +13,23 @@
             type="text"
             class="form_label"
             v-model="userName"
+            show-password
           ></el-input>
           <label for="pwd_field" class="register_form_field"
             >{{ $t('register.password') }}<a style="color: red"> *</a></label
           >
           <el-input
-            type="text"
             class="form_label"
             v-model="password"
+            show-password
           ></el-input>
           <label for="rePwd_field" class="register_form_field"
             >{{ $t('register.rePassword') }}<a style="color: red"> *</a></label
           >
           <el-input
-            type="text"
             class="form_label"
             v-model="rePassword"
+            show-password
           ></el-input>
           <el-button class="register_btn" @click.native="register">{{
             $t('register.register')
@@ -73,7 +73,7 @@ export default {
                 console.log(res.error)
             })
         } else {
-            this.$message.error('两次密码不一致')
+            this.$message.error('')
         }
     },
   },

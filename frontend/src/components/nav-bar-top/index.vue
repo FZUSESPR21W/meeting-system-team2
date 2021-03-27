@@ -66,13 +66,13 @@ export default {
           title: this.$t('index.personalCenter'),
           icon: 'el-icon-user-solid',
           path: '/user/center',
-          permission: ['0','1']
+          permission: ['1']
         },
         {
           title: this.$t('index.messageCenter'),
           icon: 'el-icon-message-solid',
           path: '/user/message',
-          permission: ['0','1']
+          permission: ['1']
         },
         {
           title: this.$t('index.logout'),
