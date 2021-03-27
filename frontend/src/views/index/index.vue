@@ -1,8 +1,8 @@
 <template>
   <div class="home_page_contianer">
-    <el-carousel indicator-position="outside" height="550px" class="full_width" >
-      <el-carousel-item v-for="item in 4" :key="item">
-        <h3>{{ item }}</h3>
+    <el-carousel indicator-position="outside" height="550px" class="carousel" type="card" >
+      <el-carousel-item v-for="item in 4" :key="item" >
+        <img :src="require('@/assets/carousel/' + (item - 1)  + '.jpg')" height="100%" width="100%"/>
       </el-carousel-item>
     </el-carousel>
     <div class="meeting_schedule">
@@ -88,6 +88,10 @@ export default {
   width: 80%;
 }
 
+.carousel {
+  margin: 50px;
+  width: 90%;
+}
 
 
 </style>
