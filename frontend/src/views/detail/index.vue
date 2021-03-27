@@ -24,8 +24,5 @@ methods: {
 </script>
 
 <style scoped>
-.sideBar{
-    width:18%;
-    position: fixed;
-  }
+
 </style>
