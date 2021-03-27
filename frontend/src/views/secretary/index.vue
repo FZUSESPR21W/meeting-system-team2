@@ -1,13 +1,6 @@
 <template>
   <div>
-    <navBarTop/>
-    <el-container>
-
-      <el-container>
-        <el-aside width="15%">Aside</el-aside>
-        <el-main>Main</el-main>
-      </el-container>
-    </el-container>
+    <navBarSide class="sideBar"/>
     <userList/>
     <bottomBar/>
   </div>
@@ -18,16 +11,16 @@
 </style>
 <script>
 import bottomBar from '@/components/footer'
-import navBarTop from './components/nav-bar-top.vue'
 import userList from './components/user-list.vue'
+import navBarSide from '@/components/nav-bar-side'
 
 export default {
   name: "index",
   components:{
     bottomBar,
-    navBarTop,
     userList,
-  },
+    navBarSide,
+  }, 
 }
 </script>
 
@@ -79,4 +72,8 @@ body > .el-container {
   box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
   background:white;
 }
+ .sideBar{
+    width:18%;
+    position: fixed;
+  }
 </style>

@@ -60,6 +60,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #E6E6E6;
+  z-index: 1;
 }
 
 .meeting_name {
