@@ -27,7 +27,7 @@ export default {
     computed: {
       //权限
       permission() {
-        return 4
+        return 3
       }
     },
    

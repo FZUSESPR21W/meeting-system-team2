@@ -93,6 +93,6 @@ export class Echarts {
 }
 export class Secretary{
     static getUserList(){
-        return axios.post('uesr_list');
+        return axios.post('/user_list',{})
     }
 }
