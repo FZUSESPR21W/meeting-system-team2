@@ -50,19 +50,42 @@ public class MeetingServiceImpl implements MeetingService {
         List<Meeting> hadAttendMeet = userDao.selectAllMeetsByUserId(username);
         Integer user_id = userDao.selectUserByUsername(username).getId();
 
-        boolean isAttendNewMeet = false;
+        boolean isIn = false;
+        boolean isSame = false;
 
         for (int meet_id : meetIdList) {
             for (Meeting meeting : hadAttendMeet) {
-                if (meeting.getId() == meet_id)
-                    continue;
-                else {
-                    userDao.insertUserWithMeet(user_id, meet_id);
-                    isAttendNewMeet = true;
+                //新会议在已参加列表
+                if (meet_id == meeting.getId()) {
+                    isIn = true;
+                    break;
                 }
             }
+            //新会议不在已参加列表
+            if (!isIn)
+                //加入列表
+                userDao.insertUserWithMeet(user_id, meet_id);
+            else
+                isIn = false;
         }
-        return isAttendNewMeet;
+
+        //更新已参加列表
+        hadAttendMeet = userDao.selectAllMeetsByUserId(username);
+
+        for (Meeting meeting : hadAttendMeet) {
+            for (int meet_id : meetIdList) {
+                if (meeting.getId() == meet_id) {
+                    isSame = true;
+                    break;
+                }
+            }
+            if (!isSame)
+                //该方法将status:1->0
+                userDao.deleteUserWithMeet(user_id, meet_id);
+            else
+                isSame = false;
+        }
+        return true;
     }
 
 }
