@@ -45,4 +45,7 @@
     <update id="readNews" >
         update meet_system.user_meeting set has_new =0 where meeting_id=#{meetId} and user_id=#{userId}
     </update>
+    <select id="selectUserStatus">
+        select status from meet_system.user_meeting where user_id=#{userId} and user_meeting.meeting_id=#{meetId}
+    </select>
 </mapper>

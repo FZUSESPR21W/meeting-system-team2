@@ -3,6 +3,7 @@ package com.fzu.meetsystem.mapper;
 import com.fzu.meetsystem.pojo.Meeting;
 import com.fzu.meetsystem.pojo.Post;
 import com.fzu.meetsystem.pojo.User;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.sql.Timestamp;
@@ -30,4 +31,7 @@ public interface UserDao {
     Integer countRegisterUserByTime(Timestamp start,Timestamp end);
     /*阅读之后修改阅读状态,1->0*/
     void readNews(Integer meetId,Integer userId);
+    /*查询用户的激活状态*/
+    int selectUserStatus(Integer meetId,Integer userId);
+
 }

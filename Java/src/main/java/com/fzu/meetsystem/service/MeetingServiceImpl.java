@@ -4,6 +4,7 @@ import com.fzu.meetsystem.mapper.MeetingDao;
 import com.fzu.meetsystem.mapper.UserDao;
 import com.fzu.meetsystem.pojo.Meeting;
 import com.fzu.meetsystem.pojo.User;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,13 +25,15 @@ public class MeetingServiceImpl implements MeetingService {
         List<Map<String, Object>> meetings = new ArrayList<>();
         for (Meeting meeting : meetingDao.selectAllMeets(username)) {
             Map<String, Object> m = new HashMap<>();
-
-            m.put("id", meeting.getId());
+            Integer meetingId=meeting.getId();
+            m.put("id", meetingId);
+            Integer userId=userDao.selectUserByUsername(username).getId();
             m.put("chairman_name", userDao.selectUserById(meeting.getChairmanId()).getUserName());
             m.put("secretary_name", userDao.selectUserById(meeting.getSecretaryId()).getUserName());
             m.put("name", meeting.getName());
             m.put("context", meeting.getContent());
-
+            Integer status=userDao.selectUserStatus(meeting.getId(),userId);
+            m.put("status",status);
             meetings.add(m);
         }
         return meetings;
@@ -64,6 +67,11 @@ public class MeetingServiceImpl implements MeetingService {
             }
         }
         return isAttendNewMeet;
+    }
+
+    @Override
+    public Integer getMeetingIdByName(String username) {
+        return meetingDao.selectAllMeets(username).get(0).getId();
     }
 
 }

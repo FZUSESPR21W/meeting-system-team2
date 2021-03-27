@@ -28,4 +28,6 @@ public interface MeetingService {
     List<User> getUserInfo(Integer meetId);
     //通过用户名和用户对应的会议idList让用户加入会议
     boolean joinMeetings(String username,List<Integer> meetIdList);
+    //通过秘书名字得到会议id
+    Integer getMeetingIdByName(String username);
 }
