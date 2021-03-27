@@ -37,7 +37,7 @@ export default {
       net_ischeck: false,
       tp_ischeck: false,
     };
-  },
+  }
 };
 </script>
 
@@ -60,7 +60,6 @@ export default {
   /* display: inline; */
   display:inline-block;
 }
-
 .center_title{
   padding-top: 30px;
   font-size: 25px;
@@ -69,6 +68,14 @@ export default {
 .detail{
   padding-top: 10px;
   padding-bottom: 10px;
-  
+}
+.personal_detail_confirm{
+  margin-right: 10%;
+  background-color: #409EFF;
+  color: white;
+  float: right;
+}
+.bbs_member {
+  margin-top: 10px;
 }
 </style>

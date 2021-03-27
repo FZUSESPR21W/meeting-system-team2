@@ -21,10 +21,10 @@ export class User {
         }
         /**
          * 注册
-         * @param username 
-         * @param password 
-         * @param rePassword 
-         * @returns 
+         * @param username
+         * @param password
+         * @param rePassword
+         * @returns
          */
     static register(username, password, rePassword) {
             return axios.post("", {
@@ -35,7 +35,7 @@ export class User {
         }
         /**
          * 获取用户信息
-         * @param username 
+         * @param username
          * @returns {*}
          */
     static getUserDetail(username) {
@@ -45,7 +45,7 @@ export class User {
         }
         /**
          * 修改用户参加分论坛情况
-         * @param {*} interest 
+         * @param {*} interest
          * @returns {*}
          */
     static modifyUserInterest(interest) {
