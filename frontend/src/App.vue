@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <navBarTop />
+    <navBarTop @changeLanguage="$refs.bottom.$emit('changeLanguage')"/>
     <router-view />
-    <bottomBar />
+    <bottomBar ref="bottom"/>
   </div>
 </template>
 

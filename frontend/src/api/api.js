@@ -88,6 +88,11 @@ export class Meeting {
 
 export class Echarts {
     static getSubNum() {
-         return axios.get("/bar_graph")
+         return axios.get("/bar_graph")}
+        
+}
+export class Secretary{
+    static getUserList(){
+        return axios.post('uesr_list');
     }
 }
