@@ -6,8 +6,8 @@ import java.sql.Timestamp;
 public class User {
 
     private Integer id;
-    private String userName;
-    private String passWord;
+    private String username;
+    private String password;
     private String email;
     private Integer authorityId;
     private Timestamp registerTime;
@@ -22,19 +22,19 @@ public class User {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getPassWord() {
-        return passWord;
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassWord(String password) {
+        this.password = password;
     }
 
     public String getEmail() {

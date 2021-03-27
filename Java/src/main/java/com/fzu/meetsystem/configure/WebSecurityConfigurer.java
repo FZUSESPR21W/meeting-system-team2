@@ -43,7 +43,7 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
         http.logout().disable();
 
         http.authorizeRequests()
-                .antMatchers("/logout").authenticated()
+                .antMatchers("/api/logout").authenticated()
                 .anyRequest().permitAll();
         http.rememberMe().alwaysRemember(true);
     }

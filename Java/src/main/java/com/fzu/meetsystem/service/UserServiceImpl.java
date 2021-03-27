@@ -3,7 +3,10 @@ package com.fzu.meetsystem.service;
 import com.fzu.meetsystem.mapper.UserDao;
 import com.fzu.meetsystem.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -15,15 +18,19 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     UserDao userDao;
+    @Autowired
+    Pbkdf2PasswordEncoder encoder;
 
     //用户注册
+    @Transactional
     @Override
     public boolean registerUser(String username, String password, List<Integer> meetingIdList) {
         boolean success = false;
         if (userDao.selectUserByUsername(username) == null) {
             User user = new User();
             user.setUserName(username);
-            user.setPassWord(password);
+
+            user.setPassWord(encoder.encode(password));
             user.setAuthorityId(1);
             if (userDao.insertUser(user)){
                 user = userDao.selectUserByUsername(username);

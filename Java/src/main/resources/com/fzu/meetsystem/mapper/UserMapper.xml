@@ -4,7 +4,7 @@
     <!--用户注册-->
     <insert id="insertUser" parameterType="com.fzu.meetsystem.pojo.User">
         insert into meet_system.user(username, password, email, authority_id, register_time, last_read_time)
-        VALUES(#{username},#{password},#{email},#{authority_id},#{register_time},#{last_read_time})
+        VALUES(#{username},#{password},#{email},#{authorityId},#{registerTime},#{lastReadTime})
     </insert>
     <!--增加用户-分论坛关联(1条)-->
     <insert id="insertUserWithMeet" >

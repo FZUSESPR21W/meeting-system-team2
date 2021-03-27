@@ -4,6 +4,7 @@ import com.fzu.meetsystem.pojo.User;
 import com.fzu.meetsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -26,12 +27,18 @@ public class UserController {
     @PostMapping("/login")
     @ResponseBody
     public Map<String,Object> login(@RequestBody Map<String,Object>user,HttpServletRequest http, Principal principal){
+        HashMap<String, Object> data = new HashMap<>();
         String username = (String) user.get("username");
         String password = (String) user.get("password");
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
-        Authentication authenticate = authenticationManager.authenticate(token);
+        Authentication authenticate;
+        try{
+            authenticate = authenticationManager.authenticate(token);
+        }catch (BadCredentialsException b){
+            data.put("_msg","failed");
+            return data;
+        }
         SecurityContextHolder.getContext().setAuthentication(authenticate);
-        HashMap<String, Object> data = new HashMap<>();
         User userInfo = userService.getUserInfo(username);
         //
         //改成获取权限名
@@ -42,12 +49,21 @@ public class UserController {
     @PostMapping("/register")
     @ResponseBody
     public Map<String,Object> register(@RequestBody Map<String,Object>user,HttpServletRequest http, Principal principal){
-        String username = (String) user.get("username");
-        String password = (String) user.get("password");
-        List<Integer> meetIdList = (List<Integer>) user.get("meetIdArray");
-        userService.registerUser(username,password,meetIdList);
+        HashMap<String, Object> resp = new HashMap<>();
+        boolean flag;
+        try{
+            String username = (String) user.get("username");
+            String password = (String) user.get("password");
+            List<Integer> meetIdList = (List<Integer>) user.get("meetIdArray");
+            flag = userService.registerUser(username, password, meetIdList);
+        }catch (Exception e){
+            resp.put("_msg","failed");
+            return resp;
+        }
 
-        return null;
+        if(!flag)
+            resp.put("_msg","failed");
+        return resp;
     }
     @RequestMapping(value = "/logout",method = {RequestMethod.GET,RequestMethod.POST})
     @ResponseBody

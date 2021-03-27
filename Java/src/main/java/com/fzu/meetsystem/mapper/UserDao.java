@@ -28,7 +28,4 @@ public interface UserDao {
     List<User> selectUserIdByMeetId(Integer meetId);
     /*获得一个时间区间内的注册人数*/
     Integer countRegisterUserByTime(Timestamp start,Timestamp end);
-
-
-    String getAuthorityById(Integer authorityId);
 }
