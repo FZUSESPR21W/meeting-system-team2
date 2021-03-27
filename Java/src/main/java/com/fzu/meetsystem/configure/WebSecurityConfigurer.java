@@ -26,11 +26,11 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Autowired
     PasswordEncoder encoder;
     @Autowired
-    UserDetailsService userDetailService;
+    UserDetailsService userDetailsService;
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        super.configure(auth);
-        auth.userDetailsService(userDetailService)
+        auth.userDetailsService(userDetailsService)
                 .passwordEncoder(encoder);
     }
 
@@ -38,7 +38,6 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 //        super.configure(http);
         http.csrf().disable();
-        http.cors().disable();
         http.formLogin().disable();
         http.logout().disable();
 
