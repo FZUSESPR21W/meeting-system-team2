@@ -47,7 +47,22 @@ public class MeetingServiceImpl implements MeetingService {
 
     @Override
     public boolean joinMeetings(String username, List<Integer> meetIdList) {
-        return false;
+        List<Meeting> hadAttendMeet = userDao.selectAllMeetsByUserId(username);
+        Integer user_id = userDao.selectUserByUsername(username).getId();
+
+        boolean isAttendNewMeet = false;
+
+        for (int meet_id : meetIdList) {
+            for (Meeting meeting : hadAttendMeet) {
+                if (meeting.getId() == meet_id)
+                    continue;
+                else {
+                    userDao.insertUserWithMeet(user_id, meet_id);
+                    isAttendNewMeet = true;
+                }
+            }
+        }
+        return isAttendNewMeet;
     }
 
 }
