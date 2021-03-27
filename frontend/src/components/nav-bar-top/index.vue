@@ -2,7 +2,7 @@
   <div class="top full_width">
     <p class="meeting_name">XXXXXX会议</p>
     <el-menu :default-active="menuActiveIndex" class="el-menu" mode="horizontal" :router="true">
-      <el-menu-item v-for="(menuItem,index) in menuList" :index="menuItem.path" :key="menuItem.title" v-if="menuItem.permission == permission">
+      <el-menu-item v-for="(menuItem,index) in menuList" :index="menuItem.path" :key="menuItem.title" v-if="menuItem.permission.indexOf(permission) >= 0">
         <i :class="menuItem.icon"/>
         {{ menuItem.title }}
       </el-menu-item>
@@ -35,7 +35,14 @@ export default {
   computed: {
     //权限
     permission() {
-      return 0
+      let permission = '0'
+      try{
+        permission = this.$store.state.userData.authority.toString()
+      }
+      catch(e){
+        return permission
+      }
+      return permission
     }
   },
   methods: {
@@ -53,31 +60,31 @@ export default {
           //url路径
           path: '/',
           //权限 0为所有用户, 1为已登录的普通用户
-          permission: '0'
+          permission: ['0','1']
         },
         {
           title: this.$t('index.personalCenter'),
           icon: 'el-icon-user-solid',
           path: '/user/center',
-          permission: '0'
+          permission: ['0','1']
         },
         {
           title: this.$t('index.messageCenter'),
           icon: 'el-icon-message-solid',
           path: '/user/message',
-          permission: '0'
+          permission: ['0','1']
         },
         {
           title: this.$t('index.logout'),
           icon: 'el-icon-switch-button',
           path: '/user/logout',
-          permission: '1'
+          permission: ['1']
         },
         {
           title: this.$t('index.login'),
           icon: 'el-icon-key',
           path: '/login',
-          permission: '0'
+          permission: ['0']
         }
       ]
     }

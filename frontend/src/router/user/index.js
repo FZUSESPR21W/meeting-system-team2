@@ -11,6 +11,10 @@ export default {
         {
             path: 'message',
             component: () => import ("@/views/user/message"),
+        },
+        {
+            path: 'logout',
+            component: () => import ("@/views/user/logout"),
         }
     ]
 }

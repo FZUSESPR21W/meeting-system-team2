@@ -14,6 +14,9 @@ export default {
   components: {
     bottomBar,
     navBarTop
+  },
+  created() {
+    this.$store.commit('getLocalUserData')
   }
 }
 </script>
