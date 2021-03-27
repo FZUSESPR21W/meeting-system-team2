@@ -1,8 +1,8 @@
 <template>
-  <div class="home_top full_width">
+  <div class="top full_width">
     <p class="meeting_name">XXXXXX会议</p>
-    <el-menu :default-active="menuActiveIndex" class="el-menu-demo" mode="horizontal" :router="true">
-      <el-menu-item v-for="(menuItem,index) in menuList" :index="menuItem.path" :key="menuItem.title" >
+    <el-menu :default-active="menuActiveIndex" class="el-menu" mode="horizontal" :router="true">
+      <el-menu-item v-for="(menuItem,index) in menuList" :index="menuItem.path" :key="menuItem.title" v-if="menuItem.permission == permission">
         <i :class="menuItem.icon"/>
         {{ menuItem.title }}
       </el-menu-item>
@@ -29,6 +29,12 @@ export default {
     this.reloadMenuData()
     this.menuActiveIndex  = this.$route.path
   },
+  computed: {
+    //权限
+    permission() {
+      return 0
+    }
+  },
   methods: {
     changeLanguage(lan) {
       this.$i18n.locale = lan
@@ -42,37 +48,46 @@ export default {
           //图标
           icon: 'el-icon-s-home',
           //url路径
-          path: '/'
+          path: '/',
+          //权限 0为所有用户, 1为已登录的普通用户
+          permission: '0'
         },
         {
           title: this.$t('index.personalCenter'),
           icon: 'el-icon-user-solid',
-          path: '/user/center'
+          path: '/user/center',
+          permission: '0'
         },
         {
           title: this.$t('index.messageCenter'),
           icon: 'el-icon-message-solid',
-          path: '/user/message'
+          path: '/user/message',
+          permission: '0'
         },
         {
           title: this.$t('index.logout'),
           icon: 'el-icon-switch-button',
-          path: '/user/logout'
+          path: '/user/logout',
+          permission: '1'
+        },
+        {
+          title: this.$t('index.login'),
+          icon: 'el-icon-key',
+          path: '/login',
+          permission: '0'
         }
       ]
-    },
-    changeViews(path) {
-      this.$router.push(path)
     }
   }
 }
 </script>
 
 <style scoped>
-.home_top {
+.top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #E6E6E6;
 }
 
 .meeting_name {
@@ -80,5 +95,9 @@ export default {
   margin: 0;
   margin-left: 30px;
   color: #409EFF
+}
+
+.el-menu {
+  border-bottom: 0;
 }
 </style>
