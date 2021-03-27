@@ -15,7 +15,6 @@
                     <el-input type="text" class="form_label" v-model="rePassword"></el-input>   
                     <el-button class="register_btn" @click.native="register">{{$t('register.register')}}</el-button>
                 </form>
-            
             </div>    
         </div>
     </div>
