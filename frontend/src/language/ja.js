@@ -62,5 +62,7 @@ export const footer = {
 }
 
 export const message = {
-    myMeetings: 'マイミーティング'
+    myMeetings: 'マイミーティング',
+    check: '既読情報',
+    uncheck: '未読情報'
 }

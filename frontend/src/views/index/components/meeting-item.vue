@@ -10,7 +10,7 @@
       </div>
       <div>
         <p class="meeting_describe">
-          {{ data.context }}
+          {{ data.content }}
         </p>
       </div>
       <el-button type="primary" class="meeting_button" plain>{{ $t('index.checkForumDetail') }}</el-button>

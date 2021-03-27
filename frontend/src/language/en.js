@@ -62,5 +62,7 @@ export const footer = {
 }
 
 export const message = {
-    myMeetings: 'My Meetings'
+    myMeetings: 'My Meetings',
+    check: 'check',
+    uncheck: 'uncheck'
 }

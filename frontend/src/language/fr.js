@@ -62,5 +62,7 @@ export const footer = {
 }
 
 export const message = {
-    myMeetings: 'Ma Réunions'
+    myMeetings: 'Ma Réunions',
+    check: 'Lire',
+    uncheck: 'non lues'
 }

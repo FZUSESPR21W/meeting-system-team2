@@ -2,17 +2,20 @@
   <div class="message_contianer full_height">
     <div class="my_forum_list">
       <p class="list_title">{{ $t('message.myMeetings') }}</p>
-      <div class="my_forum_list_item" v-for="(itemList,index) in meetingList" @click="selectMeeting(index)"
+      <div class="my_forum_list_item" v-for="(itemList,index) in meetingList" @click="selectMeeting(index, itemList.id)"
            :id="'meeting_list' + index">
-        <p class="meeting_title">{{ itemList.name }}</p>
+        <p class="meeting_title">
+          {{ itemList.name }}
+          <el-tag :type="itemList.status == 0 ? 'success' : 'danger'">{{ itemList.status == 0 ? $t('message.check') : $t('message.uncheck') }}</el-tag>
+        </p>
         <p class="meeting_content">
           <i class="el-icon-user-solid"/>
-          {{ itemList.president }}
+          {{ itemList.chairman_name }}
         </p>
-        <p class="meeting_content">{{ itemList.describe.slice(0, 20) + '...' }}</p>
+        <p class="meeting_content">{{ itemList.context.slice(0, 20) + '...' }}</p>
         <p class="meeting_time">
           <i class="el-icon-time"/>
-          {{ itemList.conveneTime }}
+          2021-3-27
         </p>
       </div>
     </div>
@@ -25,16 +28,16 @@
         </div>
         <div class="publisher">
           <i class="el-icon-user-solid icon"/>
-          <p class="publisher_name">{{ messageData.publisher }}</p>
+          <p class="publisher_name">{{ messageData.authorId }}</p>
         </div>
         <div>
           <p class="message_describe">
-            {{ messageData.message }}
+            {{ messageData.context }}
           </p>
         </div>
         <div class="message_start_time">
           <i class="el-icon-time"/>
-          {{ messageData.publishTime }}
+          {{ messageData.postTime }}
         </div>
       </el-card>
     </div>
@@ -44,59 +47,20 @@
 <script>
 export default {
   name: "index",
+  created() {
+    this.$api.Meeting.getMeetingList(this.$store.state.userData.name).then(res => {
+      this.meetingList = res.data.data.meetingList
+    })
+  },
   data() {
     return {
-      meetingList: [
-        {
-          name: '机器学习',
-          president: 'doctor.机器',
-          conveneTime: '2021-3-27',
-          describe: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          name: '计算机视觉',
-          president: 'doctor.视觉',
-          conveneTime: '2021-3-27',
-          describe: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          name: '人工智能',
-          president: 'doctor.人工智能',
-          conveneTime: '2021-3-27',
-          describe: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          name: '人机交互',
-          president: 'doctor.交互',
-          conveneTime: '2021-3-27',
-          describe: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          name: '计算机图形学',
-          president: 'doctor.图形学',
-          conveneTime: '2021-3-27',
-          describe: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-        },
-        {
-          name: '面向对象',
-          president: 'doctor.对象',
-          conveneTime: '2021-3-27',
-          describe: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-        }
-      ],
+      meetingList: [],
       selectMeetingInfo: {},
-      subForumMessage: [
-        {
-          publisher: '会议小秘书',
-          message: '不承认我是美女不准参加会议',
-          publishTime: '2021-3-27',
-          title: '关于我是个美女的通知'
-        }
-      ]
+      subForumMessage: []
     }
   },
   methods: {
-    selectMeeting(index) {
+    selectMeeting(index,meetId) {
 
       this.selectMeetingInfo = this.meetingList[index]
       for (let i = 0; i < this.meetingList.length; i++) {
@@ -106,6 +70,10 @@ export default {
         }
 
       }
+
+      this.$api.Meeting.getPostList(meetId).then(res => {
+        this.subForumMessage = res.data.data.postList
+      })
 
 
     }
@@ -129,7 +97,6 @@ export default {
 }
 
 .my_forum_list_item {
-  height: 200px;
   width: 90%;
   background-color: white;
   border: 1px solid #E8E8E8;
@@ -159,7 +126,6 @@ export default {
 .my_forum_list_item_active {
   background-color: #65BD77;
   color: white;
-  height: 200px;
   width: 90%;
   border: 1px solid #E8E8E8;
   border-radius: 10px;
@@ -192,6 +158,9 @@ export default {
 
 .meeting_title {
   font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .meeting_time {

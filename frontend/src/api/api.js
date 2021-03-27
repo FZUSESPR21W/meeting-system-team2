@@ -81,8 +81,33 @@ export class Meeting {
      * @param 无
      * @returns {*}
      */
-    static getMeetingList() {
-        return axios.post('/meeting_list', {})
+    static getMeetingList(username) {
+        console.log(username)
+        return axios.post('/meeting_list', {
+            username: username
+        })
+    }
+
+    /**
+     * 获取会议列表(无参数)
+     * @param 无
+     * @returns {*}
+     */
+    static getMeetingListWithOutParams() {
+        return axios.post('/meeting_list', {
+
+        })
+    }
+
+    /**
+     * 获取论坛帖子(无参数)
+     * @param 无
+     * @returns {*}
+     */
+    static getPostList(id) {
+        return axios.post('/getPostList', {
+            meetId: id
+        })
     }
 }
 

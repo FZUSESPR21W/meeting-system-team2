@@ -13,7 +13,7 @@ export default {
     meetingItem
   },
   created() {
-    this.$api.Meeting.getMeetingList().then(res => {
+    this.$api.Meeting.getMeetingListWithOutParams().then(res => {
       this.meetingList = res.data.data.meetingList
     })
   },

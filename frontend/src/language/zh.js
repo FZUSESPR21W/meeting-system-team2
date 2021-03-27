@@ -62,5 +62,7 @@ export const sidebar = {
 }
 
 export const message = {
-    myMeetings: '我参加的会议'
+    myMeetings: '我参加的会议',
+    check: '已读信息',
+    uncheck: '未读信息'
 }
