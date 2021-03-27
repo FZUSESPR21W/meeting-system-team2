@@ -3,21 +3,21 @@
     <div class="center_table">
       <div class="center_title">{{$t('user.personalCenter')}}</div>
       <div class="center_detail">
-        <div class="detail_username">
+        <div class="detail">
           <span class="detail_span">{{$t('user.username')}}</span>
-          <span class="username_data">xxxxxxxxxxxx</span>
+          <span class="detail_data">xxxxxxxxxxxx</span>
         </div>
-        <div class="detail_email">
+        <div class="detail">
           <span class="detail_span">{{$t('user.email')}}</span>
-          <span class="email_data">123456789@qq.com</span>
+          <span class="detail_data">123456789@qq.com</span>
         </div>
-        <div class="detial_register_time">
+        <div class="detail">
           <span class="detail_span">{{$t('user.registerTime')}}</span>
-          <span class="register_time_data"
+          <span class="detail_data"
             >2020年01月01日 15：00 （UTC+8）</span>
         </div>
         <div class="bbs_member">
-          <span class="member_data">{{$t('user.jointBbs')}}</span>
+          <span class="detail_span">{{$t('user.jointBbs')}}</span>
           <el-checkbox v-model="ml_ischeck" id="1">{{$t('interest.machineLlearning')}}</el-checkbox>
           <el-checkbox v-model="net_ischeck" id="2">{{$t('interest.computerVision')}}</el-checkbox>
           <el-checkbox v-model="tp_ischeck" id="3">{{$t('interest.neuralNetwork')}}</el-checkbox>
@@ -55,5 +55,20 @@ export default {
 }
 .detail_span{
   color: gray;
+  width: 8%;
+  /* background-color: violet; */
+  /* display: inline; */
+  display:inline-block;
+}
+
+.center_title{
+  padding-top: 30px;
+  font-size: 25px;
+  padding-bottom: 30px;
+}
+.detail{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
 }
 </style>
