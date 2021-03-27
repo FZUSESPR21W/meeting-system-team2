@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import user from './user';
 import admin from './admin';
+import secretary from './secretary';
 
 
 Vue.use(VueRouter)
@@ -28,7 +29,8 @@ const routes = [
             import ("@/views/register")
     },
     user,
-    admin
+    admin,
+    secretary,
 ]
 
 const router = new VueRouter({
