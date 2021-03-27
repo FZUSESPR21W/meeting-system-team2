@@ -42,11 +42,12 @@ public class MeetingServiceImpl implements MeetingService {
 
     @Override
     public List<User> getUserInfo(Integer meetId) {
-        return null;
+        return userDao.selectUserIdByMeetId(meetId);
     }
 
     @Override
     public boolean joinMeetings(String username, List<Integer> meetIdList) {
         return false;
     }
+
 }
