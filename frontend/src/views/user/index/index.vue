@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="full_height">
     <navBarTop />
     <router-view />
   </div>

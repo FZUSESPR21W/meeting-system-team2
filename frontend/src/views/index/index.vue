@@ -19,18 +19,21 @@
       <p class="meeting_list_title">{{ $t('index.subForum') }}</p>
       <meetingList />
     </div>
+    <bottomBar />
   </div>
 </template>
 
 <script>
 import navBarTop from '@/components/nav-bar-top'
 import meetingList from './components/meeting-list'
+import bottomBar from '@/components/footer'
 
 export default {
   name: "index",
   components: {
     navBarTop,
-    meetingList
+    meetingList,
+    bottomBar
   }
 }
 </script>
