@@ -10,13 +10,6 @@
       <el-menu-item index="1-2">用户列表</el-menu-item>
       <el-menu-item index="1-2">论坛人数</el-menu-item> -->
 
-      <el-submenu index="" class="lan">
-        <template slot="title">{{ $t('index.language') }}</template>
-        <el-menu-item index="" @click="changeLanguage('zh')">中文</el-menu-item>
-        <el-menu-item index="" @click="changeLanguage('en')">English</el-menu-item>
-      </el-submenu>
-
-      <!-- </el-submenu> -->
   
     </el-menu>
   </div>
