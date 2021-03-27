@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fzu.meetsystem.mapper.UserDao">
+    <insert id="insertUser" parameterType="com.fzu.meetsystem.pojo.User">
+        insert into meet_system.user(username, password, email, authority_id, register_time, last_read_time)
+        VALUES(#{username},#{password},#{email},#{authority_id},#{register_time},#{last_read_time})
+    </insert>
+    <insert id="insertUserWithMeet" >
+        insert into meet_system.user_meeting(user_id, meeting_id) VALUES (#{userId},#{meetId})
+    </insert>
+    <select id="selectUserByUsername" resultType="com.fzu.meetsystem.pojo.User">
+        select * from meet_system.user where username=#{username}
+    </select>
+    <select id="selectUserById" resultType="com.fzu.meetsystem.pojo.User">
+        select * from meet_system.user where id=#{id};
+    </select>
+    <select id="selectAllMeetId" resultType="java.lang.Integer">
+        select id from meet_system.meeting
+    </select>
+    <select id="selectAllUser" resultType="java.lang.Integer">
+        select count(*) row_count from meet_system.user
+    </select>
+    <select id="getAuthorityById" resultType="java.lang.String">
+        select authority from meet_system.authority where id=#{authorityId}
+    </select>
+    <select id="selectUserIdByMeetId" resultType="java.lang.Integer">
+        select user_id from meet_system.user_meeting where status=1
+    </select>
+
+</mapper>
