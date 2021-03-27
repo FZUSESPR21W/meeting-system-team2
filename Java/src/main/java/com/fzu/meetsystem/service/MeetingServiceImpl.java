@@ -37,7 +37,7 @@ public class MeetingServiceImpl implements MeetingService {
 
     @Override
     public Integer getUserNumber(Integer meetId) {
-        return null;
+        return meetingDao.countAll(meetId);
     }
 
     @Override
