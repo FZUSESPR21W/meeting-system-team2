@@ -33,6 +33,14 @@ export const user = {
     confirm: '确认修改',
 }
 
+export const register = {
+    title: '用户注册',
+    username: '用户名',
+    password: '输入密码',
+    rePassword: '重新输入密码',
+    register: '注册',
+}
+
 export const interest = {
     machineLlearning: '机器学习',
     computerVision: '计算机视觉',
