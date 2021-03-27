@@ -4,7 +4,8 @@ import VueRouter from 'vue-router'
 import user from './user';
 import admin from './admin';
 import secretary from './secretary';
-import detail from './detail';
+import chairman from './chairman';
+
 
 Vue.use(VueRouter)
 
@@ -31,7 +32,7 @@ const routes = [
     user,
     admin,
     secretary,
-    detail,
+    chairman
 ]
 
 const router = new VueRouter({
