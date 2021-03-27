@@ -1,6 +1,6 @@
 export default {
     path: "/admin/secretary",
-    component: () => import("@/views/secretary/index"),
+    component: () => import("@/views/secretary/userList"),
     children: [
 
     ]

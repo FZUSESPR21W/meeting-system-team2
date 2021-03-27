@@ -1,8 +1,8 @@
 <template>
   <div>
     <navBarSide class="sideBar"/>
-    <userList/>
-    <!-- <notice/> -->
+    <!-- <userList/> -->
+    <notice/>
   </div>
 </template>
 
@@ -11,9 +11,9 @@
 </style>
 <script>
 import bottomBar from '@/components/footer'
-import userList from './components/user-list.vue'
+import userList from '../components/user-list.vue'
 import navBarSide from '@/components/nav-bar-side'
-import notice from './components/notice'
+import notice from '../components/notice'
 
 export default {
   name: "index",

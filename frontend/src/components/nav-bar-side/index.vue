@@ -5,7 +5,6 @@
         <i :class="menuItem.icon"/>
         {{ menuItem.title }}
       </el-menu-item>
-
     </el-menu>
   </div>
     
