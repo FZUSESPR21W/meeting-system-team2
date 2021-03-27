@@ -23,19 +23,24 @@ export const login = {
     hint: '还没有账号？'
 }
 
-export const register = {
-    title: '用户注册',
-    username: '用户名',
-    password: '输入密码',
-    rePassword: '重新输入密码',
-    register: '注册',
+export const user = {
+    hello: '哈喽用户',
+    personalCenter: '个人中心',
+    username: '用户名：',
+    email: '电子邮箱：',
+    registerTime: '注册时间：',
+    jointBbs: '参与论坛：',
+    confirm: '确认修改',
 }
 
-export const user = {
-    hello: '哈喽用户'
+export const interest = {
+    machineLlearning: '机器学习',
+    computerVision: '计算机视觉',
+    neuralNetwork: '神经网络',
 }
-export const footer={
-    meetings:'关于会议',
-    aboutUs:'关于我们',
-    clause:'条款',
+
+export const footer = {
+    meetings: '关于会议',
+    aboutUs: '关于我们',
+    clause: '条款',
 }
