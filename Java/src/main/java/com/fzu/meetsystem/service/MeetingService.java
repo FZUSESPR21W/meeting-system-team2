@@ -2,10 +2,12 @@ package com.fzu.meetsystem.service;
 
 
 import com.fzu.meetsystem.pojo.User;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
+@Service
 public interface MeetingService {
     //获取会议列表
 
