@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-button type="primary" :plain="true" @click="noticeAll()"
+    <el-button type="primary" :plain="true" @click="getList()"
         style="position:relative;left:20%;margin-bottom:20px;margin-top:30px">
         <i class="el-icon-bell"></i><span>全部提醒</span></el-button>
   <el-table
@@ -84,6 +84,9 @@
         search: ''
       }
     },
+    created(){
+      getList();
+    },
     methods: {
       notice(index, row) {
 
@@ -102,6 +105,11 @@
           showClose: true,
           message: '全部提醒成功！',
           type: 'success'
+        });
+      },
+      getList(){
+        this.$api.Secretary.getUserList().then(res=>{
+          console.log(res.data);
         });
       }
     },
