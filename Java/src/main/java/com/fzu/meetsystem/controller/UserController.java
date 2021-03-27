@@ -2,6 +2,8 @@ package com.fzu.meetsystem.controller;
 
 import com.fzu.meetsystem.pojo.User;
 import com.fzu.meetsystem.service.UserService;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -19,6 +21,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/api")
+@Tag(name = "用户接口")
 public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -71,5 +74,12 @@ public class UserController {
         SecurityContextHolder.clearContext();
         return null;
     }
-
+    @ApiResponse(description = "获取自己的信息")
+    @RequestMapping(value = "/user_info",method = {RequestMethod.GET,RequestMethod.POST})
+    @ResponseBody
+    public Map<String,Object> getUserInfo(@RequestBody(required = false)  Map<String,Object>data,HttpServletRequest http, Principal principal){
+        HashMap<String, Object> resp = new HashMap<>();
+        resp.put("userList",userService.getUserInfo(principal.getName()));
+        return resp;
+    }
 }

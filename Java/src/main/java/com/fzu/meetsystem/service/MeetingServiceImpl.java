@@ -43,7 +43,7 @@ public class MeetingServiceImpl implements MeetingService {
 
     @Override
     public List<User> getUserInfo(Integer meetId) {
-        return userDao.selectUserIdByMeetId(meetId);
+        return userDao.selectUserByMeetId(meetId);
     }
 
     @Override
