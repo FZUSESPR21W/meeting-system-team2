@@ -24,7 +24,7 @@ export default {
     },
     data(){
         return{
-            num: 1200,
+            num: 7320,
         }
     },
     

@@ -16,7 +16,6 @@ export default {
     then(res => {
         userNum = [res.data.data.list[1],res.data.data.list[2],res.data.data.list[3]]
         this.initChart(userNum);
-        console.log(userNum)
     })
     
   },

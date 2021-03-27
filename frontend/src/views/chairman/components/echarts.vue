@@ -55,7 +55,7 @@ export default {
             show: false,
             dimension: 0,
             pieces: [{
-                lte: 6,
+                lte: 16,
                 color: 'green'
             }, 
             {
@@ -76,7 +76,8 @@ export default {
             {
                 gt: 17,
                 color: 'green'
-            }]
+            }
+            ]
         },
         series: [
             {

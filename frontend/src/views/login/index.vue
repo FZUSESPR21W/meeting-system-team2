@@ -80,11 +80,11 @@ export default {
             if (authority === 1) { //普通用户
               this.$router.push('/user')
             } else if (authority === 2) { //分论坛主席
-              //this.$router.push('/')
+              this.$router.push('/detail')
             } else if (authority === 3) { //秘书
-              //this.$router.push('/')
+              this.$router.push('/admin/secretary')
             } else if (authority === 4) { //大主席
-              //this.$router.push('/')
+              this.$router.push('/chairman')
             }
 
           })

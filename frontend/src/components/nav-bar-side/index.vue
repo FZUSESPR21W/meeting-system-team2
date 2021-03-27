@@ -27,7 +27,7 @@ export default {
     computed: {
       //权限
       permission() {
-        return 2
+        return 4
       }
     },
    
@@ -46,7 +46,7 @@ export default {
           //url路径
           path: '/chairman',
           //权限 2为分论坛主席， 3为秘书， 4为大主席
-          permission: '2'
+          permission: '4'
         },
         {
           title: this.$t('sidebar.subscribers'),
@@ -58,14 +58,21 @@ export default {
           title: this.$t('sidebar.userList'),
           icon: 'el-icon-s-unfold',
           path: '/admin/secretary',
+          permission: '3'
+        },
+        {
+          title: this.$t('sidebar.deliver'),
+          icon: 'el-icon-finished',
+          path: '/admin/send',
           permission: '2'
         },
         {
           title: this.$t('sidebar.deliver'),
           icon: 'el-icon-finished',
-          path: '/admin/secretary',
-          permission: '2'
+          path: '/admin/send',
+          permission: '3'
         },
+        
         
       ]
     }
