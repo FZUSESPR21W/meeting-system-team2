@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <navBarSide class="sideBar"/> -->
+    <navBarSide class="sideBar"/>
     <userList/>
     <!-- <notice/> -->
   </div>
@@ -76,6 +76,6 @@ body > .el-container {
 }
  .sideBar{
     width:18%;
-    position: fixed;
+    position: absolute;
   }
 </style>
