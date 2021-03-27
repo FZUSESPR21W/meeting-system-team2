@@ -6,12 +6,10 @@ import com.fzu.meetsystem.mapper.UserDao;
 import com.fzu.meetsystem.pojo.Meeting;
 import com.fzu.meetsystem.pojo.Post;
 import com.fzu.meetsystem.pojo.User;
-import org.apache.ibatis.annotations.Mapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,9 +28,8 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public boolean sendPost(String username, Post post) {
-        User user = userDao.selectUserByUsername(username);
         postDao.insertPost(post);
-        List<Meeting> meetingList = meetingDao.selectAllMeetsByUsername(username);
+        List<Meeting> meetingList = meetingDao.selectAllMeets(username);
         postDao.pushNews(meetingList.get(0).getId());
         return true;
     }

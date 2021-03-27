@@ -7,9 +7,8 @@ import java.util.List;
 @Mapper
 public interface MeetingDao {
     /*获得所有分论坛列表,（主席/秘书）*/
-    List<Meeting> selectAllMeets();
+    List<Meeting> selectAllMeets(String username);
     /*通过分论坛Id获得分论坛人数*/
     Integer countAll(Integer meetId);
-    /*通过用户名获得所有分论坛列表*/
-    List<Meeting> selectAllMeetsByUsername(String username);
+
 }

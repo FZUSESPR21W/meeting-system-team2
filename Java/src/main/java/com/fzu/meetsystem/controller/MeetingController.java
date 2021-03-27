@@ -28,7 +28,8 @@ public class MeetingController {
     @ResponseBody
     public Map<String,Object> getMeetingList(@RequestBody(required = false) Map<String,Object>data,HttpServletRequest http, Principal principal){
         HashMap<String, Object> resp = new HashMap<>();
-        resp.put("meetingList",meetingService.getMeetList());
+        String username=String.valueOf(data.get("username"));
+        resp.put("meetingList",meetingService.getMeetList(username));
         return resp;
     }
     @ApiResponse(description = "秘书获取对应会议的人员信息，meetId为null，则返回全部")

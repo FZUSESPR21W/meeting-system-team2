@@ -61,4 +61,10 @@ public class UserServiceImpl implements UserService {
         }
         return list;
     }
+
+    @Override
+    public void readNews(Integer meetingId, String username) {
+        User user=userDao.selectUserByUsername(username);
+        userDao.readNews(meetingId,user.getId());
+    }
 }

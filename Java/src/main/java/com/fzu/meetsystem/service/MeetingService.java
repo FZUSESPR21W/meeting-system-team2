@@ -21,11 +21,11 @@ public interface MeetingService {
      *      context:String
      * }
      */
-    public List<Map<String,Object>> getMeetList();
+    List<Map<String,Object>> getMeetList(String username);
     //通过会议id获取参会者人数
-    public Integer getUserNumber(Integer meetId);
+    Integer getUserNumber(Integer meetId);
     //通过会议id获取参会者信息
-    public List<User> getUserInfo(Integer meetId);
+    List<User> getUserInfo(Integer meetId);
     //通过用户名和用户对应的会议idList让用户加入会议
-    public boolean joinMeetings(String username,List<Integer> meetIdList);
+    boolean joinMeetings(String username,List<Integer> meetIdList);
 }
