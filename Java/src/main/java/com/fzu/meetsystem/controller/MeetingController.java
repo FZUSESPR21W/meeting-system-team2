@@ -41,4 +41,17 @@ public class MeetingController {
         resp.put("userList",meetingService.getUserInfo(meetId));
         return resp;
     }
+    @PostMapping(value = "/join_meeting")
+    @ResponseBody
+    public Map<String,Object> join_meeting(@RequestBody Map<String,Object>data,HttpServletRequest http, Principal principal){
+        HashMap<String, Object> resp = new HashMap<>();
+        String username = principal.getName();
+        List<Integer> meetList = (List<Integer>) data.get("meetIdList");
+        if(meetList==null){
+            resp.put("_msg","failed");
+            return resp;
+        }
+        meetingService.joinMeetings(username,meetList);
+        return resp;
+    }
 }

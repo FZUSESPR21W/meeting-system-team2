@@ -74,7 +74,7 @@ public class MeetingServiceImpl implements MeetingService {
         }
 
         //更新已参加列表
-        hadAttendMeet = userDao.selectAllMeetsByUserId(username);
+        hadAttendMeet = meetingDao.selectAllMeets(username);
 
         for (Meeting meeting : hadAttendMeet) {
             for (int meet_id : meetIdList) {

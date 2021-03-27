@@ -45,7 +45,10 @@
     <update id="readNews" >
         update meet_system.user_meeting set has_new =0 where meeting_id=#{meetId} and user_id=#{userId}
     </update>
-    <select id="selectUserStatus">
+    <select id="selectUserStatus" resultType="java.lang.Integer">
         select status from meet_system.user_meeting where user_id=#{userId} and user_meeting.meeting_id=#{meetId}
     </select>
+    <update id="deleteUserWithMeet">
+        update user_meeting set status=0 where user_id=#{userId} and meeting_id=#{meetId}
+    </update>
 </mapper>

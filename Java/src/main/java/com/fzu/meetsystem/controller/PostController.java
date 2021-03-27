@@ -6,6 +6,7 @@ import com.fzu.meetsystem.service.PostService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,8 +25,8 @@ public class PostController {
     @Autowired
     MeetingService meetingService;
     @ResponseBody
-    @RequestMapping("/addPost")
-    public void addPost(@RequestBody(required = false) Map<String,Object> data,HttpServletRequest http, Principal principal){
+    @PostMapping("/addPost")
+    public void addPost(@RequestBody Map<String,Object> data,HttpServletRequest http, Principal principal){
         String username=String.valueOf(data.get("username"));
         String title=String.valueOf(data.get("title"));
         String context=String.valueOf(data.get("context"));

@@ -34,4 +34,5 @@ public interface UserDao {
     /*查询用户的激活状态*/
     int selectUserStatus(Integer meetId,Integer userId);
 
+    void deleteUserWithMeet(Integer userId, Integer meetId);
 }
