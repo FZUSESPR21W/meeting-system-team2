@@ -30,8 +30,5 @@ public interface UserDao {
     Integer countRegisterUserByTime(Timestamp start,Timestamp end);
 
 
-
-
-
-
+    String getAuthorityById(Integer authorityId);
 }
