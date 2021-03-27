@@ -26,10 +26,6 @@ import i18n_option from './language'
 const i18n = new VueI18n(i18n_option)
 Vue.prototype.$languageConfig = i18n
 
-//引入echarts
-const echarts = require('echarts');
-Vue.prototype.$echarts = echarts
-
 Vue.config.productionTip = false
 
 new Vue({

@@ -32,5 +32,23 @@ export const register = {
 }
 
 export const user = {
-    hello: 'bonjour utilisateur'
+    hello: 'bonjour utilisateur',
+    personalCenter: 'Centre personnel',
+    username: 'Nom d\'utilisateur:',
+    email: 'Votre courriel:',
+    registerTime: 'Register Time:',
+    jointBbs: 'Votre intérêt:',
+    confirm: 'Confirmer',
+}
+
+export const interest = {
+    machineLlearning: 'Machine Llearning',
+    computerVision: 'Computer Vision',
+    neuralNetwork: 'Neural Network',
+}
+
+export const footer = {
+    meetings: 'réunions',
+    clause: 'clause',
+    aboutUs: 'À propos de nous',
 }
