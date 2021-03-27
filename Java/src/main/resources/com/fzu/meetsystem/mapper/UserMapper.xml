@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fzu.meetsystem.mapper.UserDao">
+    <!--用户注册-->
+    <insert id="insertUser" parameterType="com.fzu.meetsystem.pojo.User">
+        insert into meet_system.user(username, password, email, authority_id, register_time, last_read_time)
+        VALUES(#{username},#{password},#{email},#{authorityId},#{registerTime},#{lastReadTime})
+    </insert>
+    <!--增加用户-分论坛关联(1条)-->
+    <insert id="insertUserWithMeet" >
+        insert into meet_system.user_meeting(user_id, meeting_id) VALUES (#{userId},#{meetId})
+    </insert>
+    <!--通过用户名查用户-->
+    <select id="selectUserByUsername" resultType="com.fzu.meetsystem.pojo.User">
+        select * from meet_system.user where username=#{username}
+    </select>
+    <!--通过Id查询用户-->
+    <select id="selectUserById" resultType="com.fzu.meetsystem.pojo.User">
+        select * from meet_system.user where id=#{id};
+    </select>
+    <!--获得所有的分论坛id,用于用户注册时的复选框列表-->
+    <select id="selectAllMeetId" resultType="java.lang.Integer">
+        select id from meet_system.meeting
+    </select>
+    <!--统计所有用户-->
+    <select id="selectAllUser" resultType="java.lang.Integer">
+        select count(*) `count` from meet_system.user
+    </select>
+    <!--通过权限id获取权限名称-->
+    <select id="getAuthorityById" resultType="java.lang.String">
+        select authority from meet_system.authority where id=#{authorityId}
+    </select>
+    <!--通过分论坛的id获得该论坛下的用户id列表(status为1的用户)-->
+    <select id="selectUserByMeetId" resultType="com.fzu.meetsystem.pojo.User">
+        select * from meet_system.user_meeting a,meet_system.user b where a.status=1 and a.user_id=b.id
+        <if test="meetId!=null">
+            and a.meeting_id=#{meetId}
+        </if>
+    </select>
+    <!--获得一个时间区间内的注册人数-->
+    <select id="countRegisterUserByTime" resultType="java.lang.Integer">
+        select count(*) `count` from meet_system.user where register_time>#{start} and #{end}>register_time
+    </select>
+    <!--用户阅读之后修改阅读状态,1->0-->
+    <update id="readNews" >
+        update meet_system.user_meeting set has_new =0 where meeting_id=#{meetId} and user_id=#{userId}
+    </update>
+    <select id="selectUserStatus" resultType="java.lang.Integer">
+        select status from meet_system.user_meeting where user_id=#{userId} and user_meeting.meeting_id=#{meetId}
+    </select>
+    <update id="deleteUserWithMeet">
+        update user_meeting set status=0 where user_id=#{userId} and meeting_id=#{meetId}
+    </update>
+</mapper>

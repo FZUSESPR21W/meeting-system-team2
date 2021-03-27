@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fzu.meetsystem.mapper.PostDao">
+    <!--发布消息-->
+    <insert id="insertPost" parameterType="com.fzu.meetsystem.pojo.Post">
+        insert into meet_system.post(title, context, author_id, meeting_id)
+        VALUES (#{title},#{context},#{authorId},#{meetingId})
+    </insert>
+    <!--查询该论坛下的消息,分页-->
+    <select id="selectAllPostsByMeetId" resultType="com.fzu.meetsystem.pojo.Post" parameterType="java.lang.Integer">
+        select * from meet_system.post
+        <if test="meetId!=null">
+            where meeting_id=#{meetId}
+        </if>
+        <if test="limit!=null">
+            limit #{page},#{limit}
+        </if>
+    </select>
+    <!--查找时间戳之后的对应会议Id的 消息列表,分页-->
+    <select id="getNewPost" resultType="com.fzu.meetsystem.pojo.Post">
+        select * from meet_system.post where meeting_id=#{meetId} and post_time>#{timestamp}
+    </select>
+    <!--/*修改会议消息的阅读状态0->1:有新消息，发送给所有*/-->
+    <update id="pushNews" >
+        update meet_system.user_meeting set has_new =1 where meeting_id=#{meetId}
+    </update>
+</mapper>
