@@ -5,9 +5,6 @@
         <i :class="menuItem.icon"/>
         {{ menuItem.title }}
       </el-menu-item>
-      <!-- <el-menu-item index="1-1">用户人数</el-menu-item>
-      <el-menu-item index="1-2">用户列表</el-menu-item>
-      <el-menu-item index="1-2">论坛人数</el-menu-item> -->
 
   
     </el-menu>
@@ -54,26 +51,20 @@ export default {
           permission: '2'
         },
         {
-          title: this.$t('sidebar.users'),
-          icon: 'el-icon-message-solid',
+          title: this.$t('sidebar.subscribers'),
+          icon: 'el-icon-s-data',
           path: '/detail',
           permission: '2'
         },
         {
           title: this.$t('sidebar.userList'),
-          icon: 'el-icon-switch-button',
-          path: '/admin/secretary',
-          permission: '2'
-        },
-        {
-          title: this.$t('sidebar.subscribers'),
-          icon: 'el-icon-switch-button',
+          icon: 'el-icon-s-unfold',
           path: '/admin/secretary',
           permission: '2'
         },
         {
           title: this.$t('sidebar.deliver'),
-          icon: 'el-icon-switch-button',
+          icon: 'el-icon-finished',
           path: '/admin/secretary',
           permission: '2'
         },
@@ -86,6 +77,9 @@ export default {
 </script>
     
 <style>
-
+.side{
+  width: 18%;
+  position:absolute;
+}
      
 </style>

@@ -1,16 +1,12 @@
 <template>
-<el-container class="content">
-    <el-aside>
+  <div>
       <navBarSide/>
-   </el-aside> 
 
-    <el-main>
-      <h2>会议数据</h2>
       <div>
         <Echarts/>
         <p id="num">会议总人数：{{num}}</p>
       </div>
-    </el-main>
+  </div>
 </el-container>
 
 
@@ -28,7 +24,6 @@ export default {
     },
     data(){
         return{
-            isShow: true,
             num: 1200,
         }
     },

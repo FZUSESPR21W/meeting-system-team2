@@ -1,5 +1,5 @@
 <template>
-    <div id="myChart" :style="{width: '1100px', height: '500px'}"></div>
+    <div id="myChart" :style="{width: '1100px', height: '500px',left:'400px',top:'50px'}"></div>
     
 </template>
  
@@ -7,7 +7,9 @@
 export default {
     name: "index",
     data(){
-        
+        return {
+
+        }
     },
     mounted(){
         this.drawLine();
