@@ -1,10 +1,15 @@
 <template>
   <div>
+    <navBarTop/>
       <el-container>
-        <el-aside width="200px">Aside</el-aside>
+
+      <el-container>
+        <el-aside width="15%">Aside</el-aside>
         <el-main>Main</el-main>
       </el-container>
-      <bottomBar/>
+    </el-container>
+    <userList/>
+    <bottomBar/>
   </div>
 </template>
 
@@ -12,14 +17,16 @@
 
 </style>
 <script>
-import navBarTop from '@/components/nav-bar-top'
 import bottomBar from '@/components/footer'
+import navBarTop from './components/nav-bar-top.vue'
+import userList from './components/user-list.vue'
 
 export default {
   name: "index",
   components:{
-    navBarTop,
     bottomBar,
+    navBarTop,
+    userList,
   }, 
 }
 </script>
@@ -57,5 +64,19 @@ export default {
   
   .el-container:nth-child(7) .el-aside {
     line-height: 320px;
+  }
+
+  .el-header {
+    background-color: #B3C0D1;
+    color: #333;
+    line-height: 60px;
+  }
+  
+  .el-aside {
+    color: #333;
+  }
+  .header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    background:white;
   }
 </style>
