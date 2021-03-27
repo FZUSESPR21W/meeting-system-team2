@@ -1,6 +1,7 @@
 <template>
   <div>
-    <el-button type="primary" plain style="position:relative;left:20%;margin-bottom:20px;margin-top:30px">
+    <el-button type="primary" :plain="true" @click="noticeAll()"
+        style="position:relative;left:20%;margin-bottom:20px;margin-top:30px">
         <i class="el-icon-bell"></i><span>全部提醒</span></el-button>
   <el-table
     :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -25,8 +26,8 @@
       <template slot-scope="scope">
         <el-button
           size="small"
-          type="primary" plain
-          @click="handleDelete(scope.$index, scope.row)"><i class="el-icon-bell"></i><span>提醒</span></el-button>
+          type="primary" :plain="true"
+          @click="notice(scope.$index, scope.row)"><i class="el-icon-bell"></i><span>提醒</span></el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -84,8 +85,24 @@
       }
     },
     methods: {
-      handleDelete(index, row) {
-        console.log(index, row);
+      notice(index, row) {
+
+        console.log(row.email);
+        //提醒！
+        this.$message({
+          showClose: true,
+          message: '提醒成功！',
+          type: 'success'
+        });
+      },
+      noticeAll(){
+        this.$message({
+        //给所有用户发送提醒
+            
+          showClose: true,
+          message: '全部提醒成功！',
+          type: 'success'
+        });
       }
     },
   }
