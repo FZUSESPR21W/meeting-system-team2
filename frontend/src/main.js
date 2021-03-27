@@ -19,6 +19,7 @@ Vue.use(VueI18n)
 //配置语言插件
 import i18n_option from './language'
 const i18n = new VueI18n(i18n_option)
+Vue.prototype.$languageConfig = i18n
 
 Vue.config.productionTip = false
 
