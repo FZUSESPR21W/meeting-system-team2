@@ -52,3 +52,15 @@ export const footer = {
     aboutUs: '关于我们',
     clause: '条款',
 }
+
+export const sidebar = {
+    overview: '会议总览',
+    users: '用户人数',
+    userList: '用户列表',
+    subscribers: '论坛人数',
+    deliver: '消息发布',
+}
+
+export const message = {
+    myMeetings: '我参加的会议'
+}

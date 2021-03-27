@@ -1,17 +1,12 @@
 <template>
   <div class="full_height">
-    <navBarTop />
     <router-view />
   </div>
 </template>
 
 <script>
-import navBarTop from '@/components/nav-bar-top'
 export default {
-  name: "index",
-  components: {
-    navBarTop
-  }
+  name: "index"
 }
 </script>
 

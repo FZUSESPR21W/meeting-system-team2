@@ -1,6 +1,5 @@
 <template>
   <div>
-    <navBarTop />
     <div class="login_label">
       <div class="outer_label">
         <div class="login_title">{{ $t("login.title") }}</div>

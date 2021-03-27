@@ -1,5 +1,5 @@
 <template>
-<div id="sumChart" :style="{width: '800px', height: '800px'}"></div>
+<div id="sumChart" :style="{width: '666px', height: '666px',left: '500px',top: '50px',}"></div>
 </template>
 
 <script>
@@ -31,25 +31,17 @@ export default {
                 name: '关注人数',
                 type: 'bar',
                 data: [66,77,88],
-                smooth: true
+                smooth: true,
+                itemStyle: {
+                    normal: {
+                    color: function(params) {
+                        var colorList = ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83', '#ca8622'];
+                        return colorList[params.dataIndex]
+                        }
+                    }
+                }
             }]
         });
-        this.$axios.get('请求的接口')
-            .then((res)=>{
-                console.log('访问后台');
-                this.labList=null;
-                console.log(this.labList);  
-                sumChart.setOption({
-                    series:[
-                        {
-                            name: '关注人数',
-                            type: 'bar',
-                            data:this.labList,
-                            smooth: true
-                        }
-                    ]
-                })
-            });
     }
   }
 }

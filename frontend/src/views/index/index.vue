@@ -1,6 +1,5 @@
 <template>
   <div class="home_page_contianer">
-    <navBarTop/>
     <el-carousel indicator-position="outside" height="550px" class="full_width" >
       <el-carousel-item v-for="item in 4" :key="item">
         <h3>{{ item }}</h3>
