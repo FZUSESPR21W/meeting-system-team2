@@ -5,6 +5,7 @@
    </el-aside> 
 
     <el-main>
+      <h2>时间分布图</h2>
       <Echarts/>
     </el-main>
 </el-container>
