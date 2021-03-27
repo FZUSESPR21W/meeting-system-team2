@@ -81,7 +81,7 @@ public class MeetingServiceImpl implements MeetingService {
             }
             if (!isSame)
                 //该方法将status:1->0
-                userDao.deleteUserWithMeet(user_id, meet_id);
+                userDao.deleteUserWithMeet(user_id, meeting.getId());
             else
                 isSame = false;
         }
