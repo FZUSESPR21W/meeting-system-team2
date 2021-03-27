@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view class="full_height" />
+    <router-view />
   </div>
 </template>
 
