@@ -49,6 +49,7 @@ export default {
     changeLanguage(lan) {
       this.$i18n.locale = lan
       this.reloadMenuData()
+      this.$emit('changeLanguage')
     },
     reloadMenuData() {
       this.menuList = [

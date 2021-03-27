@@ -84,6 +84,9 @@ export default {
   },
   created() {
     this.reloadFooterData()
+    this.$on('changeLanguage', () => {
+      this.reloadFooterData()
+    })
   },
   methods: {
     openGithub(path) {
