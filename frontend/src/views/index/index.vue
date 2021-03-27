@@ -1,6 +1,6 @@
 <template>
   <div class="home_page_contianer">
-    <navBarTop class="full_width" />
+    <navBarTop/>
     <el-carousel indicator-position="outside" height="550px" class="full_width" >
       <el-carousel-item v-for="item in 4" :key="item">
         <h3>{{ item }}</h3>
@@ -87,5 +87,7 @@ export default {
 .meeting_schedule_line {
   width: 80%;
 }
+
+
 
 </style>

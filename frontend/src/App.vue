@@ -12,4 +12,6 @@ body {
 .full_width {
   width: 100%;
 }
+
+::-webkit-scrollbar { width: 0 !important }
 </style>
