@@ -33,7 +33,7 @@ public class PostServiceImpl implements PostService{
         User user = userDao.selectUserByUsername(username);
         postDao.insertPost(post);
         List<Meeting> meetingList = meetingDao.selectAllMeetsByUsername(username);
-        postDao.pushnew(meetingList.get(0));
+        postDao.pushNews(meetingList.get(0).getId());
         return true;
     }
 
