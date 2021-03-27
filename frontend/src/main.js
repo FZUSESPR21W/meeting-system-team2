@@ -16,6 +16,11 @@ Vue.use(api)
 import VueI18n from 'vue-i18n'
 Vue.use(VueI18n)
 
+//引入Echarts
+// import echarts from 'echarts'
+const echarts = require('echarts')
+Vue.prototype.$echarts = echarts
+
 //配置语言插件
 import i18n_option from './language'
 const i18n = new VueI18n(i18n_option)
