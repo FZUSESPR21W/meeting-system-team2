@@ -1,22 +1,23 @@
 <template>
-    <div class="login_label">
+    <div>
         <navBarTop />
-        <div class="outer_label">
-            <div class="login_title">用户登录</div>
-            
-        </div>
-        <div class="inner_label">
-            <form action="" class="login_form">
-                <label for="login_field" class="login_form_field">用户名</label>
-                <el-input type="text" class="form_label"  v-model="userName"></el-input>
-                <label for="pwd_field" class="login_form_field">密码</label>
-                <el-input type="text" class="form_label"  v-model="password"></el-input>    
-                <el-button class="login_btn" @click.native="login">登录</el-button>
-            </form>
-            <div class="footer_label">
-                <div class="register">还没有账号？<a href="#" class="register_link">注册</a></div>
+        <div class="login_label">
+            <div class="outer_label">
+                <div class="login_title">{{$t('login.title')}}</div>
             </div>
-        </div>    
+            <div class="inner_label">
+                <form action="" class="login_form">
+                    <label for="login_field" class="login_form_field">{{$t('login.username')}}</label>
+                    <el-input type="text" class="form_label"  v-model="userName"></el-input>
+                    <label for="pwd_field" class="login_form_field">{{$t('login.password')}}</label>
+                    <el-input type="text" class="form_label"  v-model="password"></el-input>    
+                    <el-button class="login_btn" @click.native="login">{{$t('login.login')}}</el-button>
+                </form>
+                <div class="footer_label">
+                    <div class="register">{{$t('login.hint')}}<a href="#" class="register_link">{{$t('login.register')}}</a></div>
+                </div>
+            </div>    
+        </div>
     </div>
 </template>
 
@@ -50,7 +51,7 @@ methods: {
     }
     .outer_label{
         margin: 0 auto;
-        width: 100px;
+        width: 300px;
         text-align: center;
     }
     .inner_label{
@@ -96,6 +97,7 @@ methods: {
         margin-bottom: 30px;
         font-size: 25px;
         font-family: "微软雅黑";
+        width: 100%;
     }
     .footer_label{
         margin: 0 auto;
@@ -104,6 +106,7 @@ methods: {
         margin-top: 15px;
         border:1px solid rgba(0, 0, 0, 0.75);
         border-radius: 3px;
+        font-size: 15px;
     }
     .register{
         height: 90%;

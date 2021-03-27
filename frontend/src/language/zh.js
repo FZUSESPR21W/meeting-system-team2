@@ -23,6 +23,14 @@ export const login = {
     hint: '还没有账号？'
 }
 
+export const register = {
+    title: '用户注册',
+    username: '用户名',
+    password: '输入密码',
+    rePassword: '重新输入密码',
+    register: '注册',
+}
+
 export const user = {
     hello: '哈喽用户'
 }
