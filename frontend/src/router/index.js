@@ -6,6 +6,7 @@ import admin from './admin';
 import secretary from './secretary';
 import chairman from './chairman';
 import detail from './detail';
+import send from './send';
 
 
 Vue.use(VueRouter)
@@ -43,7 +44,8 @@ const routes = [
     admin,
     secretary,
     chairman,
-    detail
+    detail,
+    send
 ]
 
 const router = new VueRouter({
