@@ -4,6 +4,12 @@
   </div>
 </template>
 
-<style lang="scss">
+<style>
+body {
+  margin: 0;
+}
 
+.full_width {
+  width: 100%;
+}
 </style>

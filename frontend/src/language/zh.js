@@ -6,7 +6,12 @@ export const index = {
     personalCenter: '个人中心',
     logout: '登出',
     messageCenter: '消息中心',
-    language: '语言'
+    language: '语言',
+    subForum: '会议分论坛',
+    subForumPresident: '分论坛主席',
+    checkForumDetail: '查看论坛详情',
+    meetingSchedule: '会议议程',
+    day: '会议日程',
 }
 
 export const user = {
